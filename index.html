@@ -1,0 +1,2134 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lexia - AI Solutions</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<div class="gradient-background">
+  <div class="gradient-blob blob-1"></div>
+  <div class="gradient-blob blob-2"></div>
+  <div class="gradient-blob blob-3"></div>
+</div>
+<svg style="display: none;">
+  <filter id="noise">
+    <feTurbulence type="fractalNoise" baseFrequency="0.6" stitchTiles="stitch" />
+    <feColorMatrix type="saturate" values="0.5" />
+  </filter>
+</svg>
+
+<nav>
+  <div class="nav-container">
+    <a href="index.html" class="logo">
+      <img src="img/logo-2.png" alt="Lexia Logo" />
+    </a>
+    <div class="nav-links">
+      <div class="dropdown">
+        <a href="index.html#features" class="nav-link dropdown-button">
+          Nos Solutions
+          <svg class="chevron" viewBox="0 0 24 24" width="16" height="16">
+            <path d="M7 10l5 5 5-5" stroke="currentColor" stroke-width="1.5" fill="none"/>
+          </svg>
+        </a>
+        <div class="dropdown-content">
+          <a href="feature1.html">Collecte Intelligente de Donnée</a>
+          <a href="feature2.html">Exploration Contextuelle des Données</a>
+          <a href="feature3.html">Interaction Humaine Augmentée</a>
+        </div>
+      </div>
+      <a href="index.html#case-studies" class="nav-link">Use Cases</a>
+      <a href="index.html#methodology" class="nav-link">Notre Méthode</a>
+      <a href="team.html" class="nav-link">L'équipe Lexia</a>
+      <a href="blog.html" class="nav-link">Blog</a>
+      <a href="contact.html" class="nav-contact">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+        </svg>
+        Nous Contacter
+      </a>
+    </div>
+  </div>
+</nav>
+<style>
+  .hero-container {
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Animation du titre */
+  .hero-content h1 {
+    opacity: 0;
+    transform: translateX(-50px);
+    animation: slideInLeft 1s cubic-bezier(0.5, 0, 0, 1) forwards;
+  }
+
+  .hero-content p {
+    opacity: 0;
+    transform: translateX(-30px);
+    animation: slideInLeft 1s cubic-bezier(0.5, 0, 0, 1) 0.3s forwards;
+  }
+
+  .hero-cta {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1s cubic-bezier(0.5, 0, 0, 1) 0.6s forwards;
+  }
+
+  /* Animations pour le visuel */
+  .hero-visual {
+    opacity: 0;
+    transform: translateX(50px);
+    animation: slideInRight 1s cubic-bezier(0.5, 0, 0, 1) 0.3s forwards;
+    width: 90%; /* Réduit la taille globale */
+  }
+
+  .code-visual {
+    position: relative;
+    width: 90%; /* Réduit la taille du carré */
+    aspect-ratio: 1/1;
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(249, 115, 22, 0.1));
+    border-radius: 24px;
+    overflow: hidden;
+  }
+
+  .code-visual::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(45deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.1) 50%,
+    transparent 100%
+    );
+    animation: shimmer 3s infinite;
+  }
+
+  video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* Animation des points flottants */
+  .floating-dots {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+
+  .dot {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: #fff;
+    border-radius: 50%;
+    opacity: 0;
+    animation: floatDot 3s infinite;
+  }
+
+  /* Play button animation */
+
+
+  /* Keyframes */
+  @keyframes slideInLeft {
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes slideInRight {
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes shimmer {
+    0% {
+      transform: translateX(-100%) rotate(45deg);
+    }
+    50%, 100% {
+      transform: translateX(100%) rotate(45deg);
+    }
+  }
+
+  @keyframes floatDot {
+    0% {
+      transform: translateY(0) scale(0);
+      opacity: 0;
+    }
+    50% {
+      opacity: 0.5;
+      transform: translateY(-20px) scale(1);
+    }
+    100% {
+      transform: translateY(-40px) scale(0);
+      opacity: 0;
+    }
+  }
+
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+      opacity: 0.8;
+    }
+    100% {
+      transform: scale(1.5);
+      opacity: 0;
+    }
+  }
+
+  @keyframes popIn {
+    to {
+      transform: scale(1);
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Création des points flottants
+    const dotsContainer = document.querySelector('.floating-dots');
+    for(let i = 0; i < 20; i++) {
+      const dot = document.createElement('div');
+      dot.className = 'dot';
+      dot.style.left = `${Math.random() * 100}%`;
+      dot.style.animationDelay = `${Math.random() * 2}s`;
+      dotsContainer.appendChild(dot);
+    }
+
+    // Animation texte par lettre (optionnel)
+    const title = document.querySelector('.hero-content h1');
+    const text = title.textContent;
+    title.innerHTML = '';
+    text.split('').forEach((char, i) => {
+      const span = document.createElement('span');
+      span.textContent = char;
+      span.style.opacity = '0';
+      span.style.animation = `slideInLeft 0.5s cubic-bezier(0.5, 0, 0, 1) ${i * 0.03}s forwards`;
+      title.appendChild(span);
+    });
+  });
+</script>
+<section id="hero" class="hero">
+  <!-- Ajoutez dans votre section hero, juste après l'ouverture de la balise -->
+  <div class="gradient-blobs">
+    <img src="img/1.png" alt="" class="blob blob-1">
+    <img src="img/3.png" alt="" class="blob blob-2">
+  </div>
+  <div class="hero-container">
+    <div class="hero-content">
+      <h1>
+        <span>Boostez vos Données</span>
+        <br>
+        <span>Avec l'IA</span>
+      </h1>
+      <p>Nous révolutionnons l'usage de l'intelligence artificielle pour transformer vos données en avantages stratégiques. Des solutions personnalisées, des insights concrets et une collaboration solide pour maximiser leur impact.</p>
+      <div class="hero-cta">
+        <button onclick="window.location.href='#features'" class="btn btn-primary">Nos solutions</button>      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="code-visual">
+        <video id="heroVideo" width="100%" height="100%" style="object-fit: cover;">
+          <source src="datafueler.mp4" type="video/mp4">
+        </video>
+        <div id="playButton" class="play-button">
+          <svg viewBox="0 0 24 24" width="48" height="48">
+            <path d="M8 5v14l11-7z" fill="#fff"/>
+          </svg>
+        </div>
+          <svg viewBox="0 0 24 24" width="48" height="48">
+            <path d="M8 5v14l11-7z" fill="#fff"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const video = document.getElementById('heroVideo');
+      const playButton = document.getElementById('playButton');
+      const playIcon = `<svg viewBox="0 0 24 24" width="48" height="48"><path d="M8 5v14l11-7z" fill="#fff"/></svg>`;
+      const pauseIcon = `<svg viewBox="0 0 24 24" width="48" height="48"><path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z" fill="#fff"/></svg>`;
+
+      // Désactiver les contrôles par défaut
+      video.removeAttribute('controls');
+
+      // Fonction pour basculer lecture/pause
+      function togglePlay() {
+        if (video.paused) {
+          video.play();
+          playButton.innerHTML = pauseIcon;
+        } else {
+          video.pause();
+          playButton.innerHTML = playIcon;
+        }
+      }
+
+      // Événement click sur le bouton play
+      playButton.addEventListener('click', togglePlay);
+
+      // Mise à jour du bouton quand la vidéo se termine
+      video.addEventListener('ended', function() {
+        playButton.innerHTML = playIcon;
+      });
+
+      // Montrer le bouton play au survol
+      video.addEventListener('mouseover', function() {
+        playButton.style.opacity = '1';
+      });
+
+      video.addEventListener('mouseout', function() {
+        if (!video.paused) {
+          playButton.style.opacity = '0';
+        }
+      });
+    });
+  </script>
+  <style>
+    .features h2 {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+    }
+
+    .features h2.appear {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .features-subtitle {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.8s cubic-bezier(0.5, 0, 0, 1) 0.2s;
+    }
+
+    .features-subtitle.appear {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .code-visual {
+      width: 100%;
+      aspect-ratio: 1/1; /* Pour garantir un carré parfait */
+    }
+
+    video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .play-button {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: rgba(0, 0, 0, 0.5);
+      border-radius: 50%;
+      width: 64px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      z-index: 2;
+    }
+
+    .play-button:hover {
+      background: rgba(0, 0, 0, 0.7);
+      transform: translate(-50%, -50%) scale(1.1);
+    }
+    .hero-visual {
+      opacity: 0;
+      transform: translateX(50px);
+      animation: slideInRight 1s cubic-bezier(0.5, 0, 0, 1) 0.3s forwards;
+      width: 90%; /* Réduit la taille globale */
+    }
+
+    .code-visual {
+      position: relative;
+      width: 90%; /* Réduit la taille du carré */
+      aspect-ratio: 1/1;
+      background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(249, 115, 22, 0.1));
+      border-radius: 24px;
+      overflow: hidden;
+    }
+
+    .code-visual::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(45deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.1) 50%,
+      transparent 100%
+      );
+      animation: shimmer 3s infinite;
+    }
+
+    video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  </style>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Création de l'Intersection Observer
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('appear');
+          }
+        });
+      }, {
+        threshold: 0.1,
+        rootMargin: '-50px'
+      });
+
+      // Observer le titre et le sous-titre
+      const title = document.querySelector('.features h2');
+      const subtitle = document.querySelector('.features-subtitle');
+
+      if (title) observer.observe(title);
+      if (subtitle) observer.observe(subtitle);
+    });
+  </script>
+
+  <section id="features" class="features">
+    <div class="features-background"></div>
+    <div class="features-blob-left">
+      <img src="img/blob4.png" alt="">
+    </div>
+    <div class="features-blob-right">
+      <img src="img/blob4.png" alt="">
+    </div>
+    <div class="features-container">
+      <h2>Ensemble, créons des solutions d'excellence</h2>
+      <p class="features-subtitle">Vos ambitions inspirent nos solutions. Grâce à notre expertise en IA, nous transformons vos données en outils stratégiques : collectez, analysez et dialoguez autrement. Ensemble, nous réinventons vos performances pour dépasser vos objectifs.</p>
+
+      <div class="features-box">
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12V7H5a2 2 0 0 1 0-4h14v4"/><path d="M3 12v5h16a2 2 0 0 1 0 4H3v-4"/></svg>
+            </div>
+            <h3>Collecte Intelligente de Donnée</h3>
+            <p>Automatisez la récupération et l'intégration de données depuis vos sources internes et externes grâce à des outils avancés de traitement et de synchronisation.</p>
+            <ul class="process-details">
+              <li>Simplification de l'intégration</li>
+              <li>Synchronisation en temps réel</li>
+              <li>Accélération des analyses de données</li>
+            </ul>
+            <button class="btn btn-primary2" onclick="window.location.href='feature1.html'">Voir plus</button>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h6"/><path d="m12 12 4 10 1.7-4.3L22 16Z"/></svg>
+            </div>
+            <h3>Exploration Contextuelle des Données</h3>
+            <p>Transformez vos bases de données en moteurs de réponses précises et pertinentes. Obtenez des insights sur-mesure en connectant et enrichissant vos informations.</p>
+            <ul class="process-details">
+              <li>Données toujours à portée de main</li>
+              <li>Insights personnalisés en temps réel</li>
+              <li>Prise de décision optimisée</li>
+            </ul>
+            <button class="btn btn-primary2" onclick="window.location.href='feature2.html'">Voir plus</button>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><path d="M8 13h2"/><path d="M8 17h2"/><path d="M14 13h2"/><path d="M14 17h2"/></svg>
+            </div>
+            <h3>Interaction Humaine Augmentée</h3>
+            <p>Révolutionnez vos échanges avec une intelligence capable de comprendre le contexte, d'anticiper les besoins et de répondre de façon naturelle et intuitive.</p>
+            <ul class="process-details">
+              <li>Expériences interactives personnalisées</li>
+              <li>Relations clients optimisées</li>
+              <li>Communication naturelle et intuitive</li>
+            </ul>
+            <button class="btn btn-primary2" onclick="window.location.href='URL-DE-VOTRE-PAGE'">Voir plus</button>          </div>
+        </div>
+
+        <div class="datacenter-image">
+          <img src="img/test2.jpg" alt="Data Center">
+        </div>
+      </div>
+    </div>
+    <section>
+      <style>
+        /* Animation du titre */
+        .methodology-header h2 {
+          opacity: 0;
+          transform: translateY(20px);
+          transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+
+        .methodology-header h2.appear {
+          opacity: 1;
+          transform: translateY(0);
+        }
+
+        /* Animation de la timeline */
+        .timeline-track {
+          position: relative;
+        }
+
+        .timeline-progress {
+          width: 0;
+          transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .timeline-progress.animate {
+          width: 100%;
+        }
+
+        /* Animation des étapes */
+        .step {
+          opacity: 0;
+          transform: translateY(30px);
+          transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+
+        .step:nth-child(1) { transition-delay: 0.2s; }
+        .step:nth-child(2) { transition-delay: 0.4s; }
+        .step:nth-child(3) { transition-delay: 0.6s; }
+
+        .step.appear {
+          opacity: 1;
+          transform: translateY(0);
+        }
+
+        /* Animation des points */
+        .step-dot {
+          transform: scale(0);
+          transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .step.appear .step-dot {
+          transform: scale(1);
+        }
+
+        /* Animation de la section fondateur */
+        .founder-section {
+          opacity: 0;
+          transform: translateY(30px);
+          transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+
+        .founder-section.appear {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      </style>
+
+      <script>
+        document.addEventListener('DOMContentLoaded', () => {
+          const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                // Active l'animation appropriée selon la classe de l'élément
+                if (entry.target.classList.contains('timeline-progress')) {
+                  entry.target.classList.add('animate');
+                } else {
+                  entry.target.classList.add('appear');
+                }
+              }
+            });
+          }, {
+            threshold: 0.2,
+            rootMargin: '-50px'
+          });
+
+          // Observer les éléments
+          const elements = [
+            '.methodology-header h2',
+            '.timeline-progress',
+            '.step',
+            '.founder-section'
+          ].forEach(selector => {
+            document.querySelectorAll(selector).forEach(el => observer.observe(el));
+          });
+        });
+      </script>
+      <section id="methodology" class="methodology">
+      <div class="container">
+        <div class="methodology-header">
+          <h2>Notre Méthode</h2>
+          <p></p>
+        </div>
+
+        <div class="timeline-container">
+          <div class="timeline">
+            <div class="timeline-track">
+              <div class="timeline-progress"></div>
+            </div>
+
+            <div class="steps">
+              <div class="step">
+                <div class="step-marker">
+                  <div class="step-dot"></div>
+                </div>
+                <div class="step-content">
+                  <div class="step-card">
+                    <div class="step-header">
+                      <span class="step-number">01</span>
+                      <div class="step-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M21 11V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h6"/>
+                          <path d="m12 12 4 10 1.7-4.3L22 16Z"/>
+                        </svg>
+                      </div>
+                    </div>
+                    <div class="step-body">
+                      <h3>Diagnostic</h3>
+                      <p>Analyse approfondie de vos besoins et identification des opportunités IA pour une implémentation efficace.</p>
+                      <ul>
+                        <li>Audit des processus existants</li>
+                        <li>Identification des cas d'usage</li>
+                        <li>Évaluation du ROI potentiel</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="step">
+                <div class="step-marker">
+                  <div class="step-dot"></div>
+                </div>
+                <div class="step-content">
+                  <div class="step-card">
+                    <div class="step-header">
+                      <span class="step-number">02</span>
+                      <div class="step-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                          <path d="M3.27 6.96 12 12.01l8.73-5.05"/>
+                          <path d="M12 22.08V12"/>
+                        </svg>
+                      </div>
+                    </div>
+                    <div class="step-body">
+                      <h3>POC</h3>
+                      <p>Développement d'une preuve de concept sur un périmètre restreint pour valider la solution.</p>
+                      <ul>
+                        <li>Prototype fonctionnel</li>
+                        <li>Tests en conditions réelles</li>
+                        <li>Ajustements itératifs</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="step">
+                <div class="step-marker">
+                  <div class="step-dot"></div>
+                </div>
+                <div class="step-content">
+                  <div class="step-card">
+                    <div class="step-header">
+                      <span class="step-number">03</span>
+                      <div class="step-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                          <path d="m9 11 3 3L22 4"/>
+                        </svg>
+                      </div>
+                    </div>
+                    <div class="step-body">
+                      <h3>Déploiement</h3>
+                      <p>Mise en production de la solution à grande échelle avec un accompagnement complet.</p>
+                      <ul>
+                        <li>Formation des équipes</li>
+                        <li>Intégration système</li>
+                        <li>Support continu</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="founder-section">
+          <div class="founder-image">
+            <img src="img/martial2.png" alt="Anthony Marquié - Cofondateur">
+          </div>
+          <div class="founder-content">
+            <p>Nous avons développé une approche méthodique, testée et éprouvée, qui allie expertise technique et compréhension des enjeux business. Chaque étape, du diagnostic initial au déploiement final, est conçue pour maximiser la valeur de vos données tout en garantissant un retour sur investissement rapide et durable.</p>
+            <div class="founder-info">
+              <strong>Martial Roberge</strong>
+              <span>Cofondateur & COO</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <style>
+      .methodology {
+        padding: 100px 0;
+        background-color: #f8f9fa;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 24px;
+      }
+
+      .methodology-header {
+        text-align: center;
+        max-width: 800px;
+        margin: 0 auto 80px;
+      }
+
+      .methodology-header h2 {
+        font-size: 36px;
+        margin-bottom: 20px;
+        color: #1a1a1a;
+      }
+
+      .methodology-header p {
+        font-size: 18px;
+        line-height: 1.6;
+        color: #666;
+      }
+
+      .timeline-container {
+        margin-bottom: 100px;
+        padding-top: 60px;
+      }
+
+      .timeline {
+        position: relative;
+      }
+
+      .timeline-track {
+        position: absolute;
+        top: 60px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90%;
+        height: 2px;
+        background: linear-gradient(90deg,
+        rgba(59, 130, 246, 0.2),
+        rgba(249, 115, 22, 0.2)
+        );
+      }
+
+      .timeline-progress {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, #3b82f6, #f97316);
+        transform-origin: left;
+        transform: scaleX(0);
+        animation: progress 1.5s ease-out forwards;
+      }
+
+      .steps {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+      }
+
+      .step {
+        position: relative;
+        padding-top: 30px;
+      }
+
+      .step-marker {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 2;
+      }
+
+      .step-dot {
+        width: 24px;
+        height: 24px;
+        background: white;
+        border-radius: 50%;
+        border: 2px solid #3b82f6;
+        position: relative;
+        transition: all 0.3s ease;
+      }
+
+      .step-dot::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(249, 115, 22, 0.2));
+        z-index: -1;
+      }
+
+      .step-dot::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #3b82f6, #f97316);
+        animation: pulse 2s infinite;
+      }
+
+      .step:nth-child(2) .step-dot {
+        border-color: #f97316;
+      }
+
+      .step:nth-child(3) .step-dot {
+        border-color: #f97316;
+      }
+
+      .step-card {
+        background: white;
+        border-radius: 20px;
+        padding: 30px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        transition: all 0.3s ease;
+        margin-top: 40px;
+      }
+
+      .step-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+      }
+
+      .step-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+
+      .step-number {
+        font-size: 48px;
+        font-weight: bold;
+        background: linear-gradient(135deg, #3b82f6, #f97316);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        opacity: 0.8;
+      }
+
+      .step-icon {
+        width: 48px;
+        height: 48px;
+        border-radius: 12px;
+        background: linear-gradient(135deg, #3b82f6, #f97316);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .step-icon svg {
+        color: white;
+      }
+
+      .step-body h3 {
+        font-size: 24px;
+        margin-bottom: 16px;
+        color: #1a1a1a;
+      }
+
+      .step-body p {
+        color: #666;
+        line-height: 1.6;
+        margin-bottom: 20px;
+      }
+
+      .step-body ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      .step-body ul li {
+        position: relative;
+        padding-left: 24px;
+        margin-bottom: 12px;
+        color: #666;
+      }
+
+      .step-body ul li::before {
+        content: "•";
+        color: #3b82f6;
+        position: absolute;
+        left: 0;
+        font-size: 20px;
+        line-height: 1;
+      }
+
+      .founder-section {
+        display: flex;
+        gap: 60px;
+        align-items: center;
+        background: white;
+        border-radius: 20px;
+        padding: 60px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      }
+
+      .founder-image {
+        flex-shrink: 0;
+        width: 300px;
+        height: 300px;
+        border-radius: 20px;
+        overflow: hidden;
+      }
+
+      .founder-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .founder-content {
+        flex: 1;
+      }
+
+      .founder-content p {
+        font-size: 18px;
+        line-height: 1.8;
+        color: #333;
+        font-style: italic;
+        margin-bottom: 30px;
+      }
+
+      .founder-info {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+      }
+
+      .founder-info strong {
+        font-size: 20px;
+        color: #1a1a1a;
+      }
+
+      .founder-info span {
+        font-size: 16px;
+        color: #666;
+      }
+
+      @keyframes pulse {
+        0% {
+          transform: translate(-50%, -50%) scale(0.8);
+          opacity: 0.8;
+        }
+        50% {
+          transform: translate(-50%, -50%) scale(1);
+          opacity: 0.4;
+        }
+        100% {
+          transform: translate(-50%, -50%) scale(0.8);
+          opacity: 0.8;
+        }
+      }
+
+      @keyframes progress {
+        0% {
+          transform: scaleX(0);
+        }
+        100% {
+          transform: scaleX(1);
+        }
+      }
+
+      @media (max-width: 1024px) {
+        .steps {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .timeline-track {
+          display: none;
+        }
+
+        .step-marker {
+          display: none;
+        }
+
+        .step-card {
+          margin-top: 0;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .methodology {
+          padding: 60px 0;
+        }
+
+        .steps {
+          grid-template-columns: 1fr;
+        }
+
+        .founder-section {
+          flex-direction: column;
+          text-align: center;
+          padding: 40px;
+          gap: 40px;
+        }
+
+        .founder-image {
+          width: 200px;
+          height: 200px;
+          margin: 0 auto;
+        }
+      }
+    </style>
+      <style>
+        .testimonials h2 {
+          opacity: 0;
+          transform: translateY(20px);
+          transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+
+        .testimonials h2.appear {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      </style>
+
+      <script>
+        document.addEventListener('DOMContentLoaded', () => {
+          const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('appear');
+              }
+            });
+          }, {
+            threshold: 0.1,
+            rootMargin: '-50px'
+          });
+
+          // Observer uniquement le titre
+          const title = document.querySelector('.testimonials h2');
+          if (title) observer.observe(title);
+        });
+      </script>
+    <section class="testimonials">
+      <div class="container">
+        <h2>Ce que disent nos clients</h2>
+
+        <div class="slider-container">
+          <!-- Boutons de navigation -->
+          <button class="nav-btn prev" aria-label="Précédent">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M15 18l-6-6 6-6" />
+            </svg>
+          </button>
+          <button class="nav-btn next" aria-label="Suivant">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M9 18l6-6-6-6" />
+            </svg>
+          </button>
+
+          <div class="testimonials-track">
+            <!-- Testimonial 1 -->
+            <div class="testimonial">
+              <div class="testimonial-inner">
+                <div class="image-side">
+                  <img src="img/Anthony_marquie2.jpg" alt="Anthony Marquié">
+                  <img src="img/watchfid.png" alt="Watchfid" class="company-logo">
+                </div>
+                <div class="content-side">
+                  <svg class="quote-icon" width="45" height="36" viewBox="0 0 45 36" fill="none">
+                    <path d="M13.4 36C9.4 36 6.2 34.6667 3.8 32C1.4 29.2 0.2 25.6 0.2 21.2C0.2 17.3333 1.26667 13.6 3.4 10C5.53333 6.4 8.46667 3.33333 12.2 0.799996L19 5.6C15.8 8.13333 13.4667 10.3333 12 12.2C10.5333 14.0667 9.66667 15.8667 9.4 17.6C9.66667 17.4667 10.2 17.3333 11 17.2C11.8 17.0667 12.6 17 13.4 17C16.0667 17 18.2667 17.9333 20 19.8C21.7333 21.6667 22.6 24 22.6 26.8C22.6 29.7333 21.6667 32.1333 19.8 34C17.9333 35.3333 15.8 36 13.4 36Z" fill="currentColor"/>
+                  </svg>
+                  <p class="quote">Une expérience exceptionnelle qui a transformé notre façon de travailler. L'équipe a su comprendre nos besoins et proposer des solutions sur mesure.</p>
+                  <div class="author">
+                    <strong>Anthony Marquié</strong>
+                    <span>CEO, Watchfid</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Testimonial 2 -->
+            <div class="testimonial">
+              <div class="testimonial-inner">
+                <div class="image-side">
+                  <img src="img/martial2.png" alt="Marc Dubois">
+                  <img src="img/innovtech.png" alt="InnovTech" class="company-logo">
+                </div>
+                <div class="content-side">
+                  <svg class="quote-icon" width="45" height="36" viewBox="0 0 45 36" fill="none">
+                    <path d="M13.4 36C9.4 36 6.2 34.6667 3.8 32C1.4 29.2 0.2 25.6 0.2 21.2C0.2 17.3333 1.26667 13.6 3.4 10C5.53333 6.4 8.46667 3.33333 12.2 0.799996L19 5.6C15.8 8.13333 13.4667 10.3333 12 12.2C10.5333 14.0667 9.66667 15.8667 9.4 17.6C9.66667 17.4667 10.2 17.3333 11 17.2C11.8 17.0667 12.6 17 13.4 17C16.0667 17 18.2667 17.9333 20 19.8C21.7333 21.6667 22.6 24 22.6 26.8C22.6 29.7333 21.6667 32.1333 19.8 34C17.9333 35.3333 15.8 36 13.4 36Z" fill="currentColor"/>
+                  </svg>
+                  <p class="quote">L'implémentation a été rapide et efficace. Les résultats ont été immédiats et notre productivité a augmenté considérablement.</p>
+                  <div class="author">
+                    <strong>Marc Dubois</strong>
+                    <span>CTO, InnovTech</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Testimonial 3 -->
+            <div class="testimonial">
+              <div class="testimonial-inner">
+                <div class="image-side">
+                  <img src="img/martial2.png" alt="Emma Martinez">
+                  <img src="img/futurelab.png" alt="FutureLab" class="company-logo">
+                </div>
+                <div class="content-side">
+                  <svg class="quote-icon" width="45" height="36" viewBox="0 0 45 36" fill="none">
+                    <path d="M13.4 36C9.4 36 6.2 34.6667 3.8 32C1.4 29.2 0.2 25.6 0.2 21.2C0.2 17.3333 1.26667 13.6 3.4 10C5.53333 6.4 8.46667 3.33333 12.2 0.799996L19 5.6C15.8 8.13333 13.4667 10.3333 12 12.2C10.5333 14.0667 9.66667 15.8667 9.4 17.6C9.66667 17.4667 10.2 17.3333 11 17.2C11.8 17.0667 12.6 17 13.4 17C16.0667 17 18.2667 17.9333 20 19.8C21.7333 21.6667 22.6 24 22.6 26.8C22.6 29.7333 21.6667 32.1333 19.8 34C17.9333 35.3333 15.8 36 13.4 36Z" fill="currentColor"/>
+                  </svg>
+                  <p class="quote">Un partenariat qui va au-delà de la simple prestation. Leur expertise et leur engagement ont été déterminants.</p>
+                  <div class="author">
+                    <strong>Emma Martinez</strong>
+                    <span>CTO, FutureLab</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Indicateurs -->
+          <div class="slider-indicators">
+            <button class="indicator active"></button>
+            <button class="indicator"></button>
+            <button class="indicator"></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <style>
+      .testimonials {
+        padding: 120px 0;
+        background: #faf9f7;
+        color: #1a1a1a;
+        overflow: hidden;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      .testimonials h2 {
+        font-size: 40px;
+        text-align: center;
+        margin-bottom: 80px;
+        background: linear-gradient(135deg, #3b82f6, #f97316);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .slider-container {
+        position: relative;
+        margin: 0 -20px;
+      }
+
+      .testimonials-track {
+        display: flex;
+        transition: transform 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
+      }
+
+      .testimonial {
+        min-width: 100%;
+        padding: 0 20px;
+      }
+
+      .testimonial-inner {
+        display: grid;
+        grid-template-columns: 400px 1fr;
+        gap: 60px;
+        align-items: center;
+      }
+
+      .image-side {
+        position: relative;
+        height: 500px;
+        border-radius: 4px;
+        overflow: hidden;
+      }
+
+      .image-side img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.6s ease;
+      }
+
+      .testimonial:hover .image-side img {
+        transform: scale(1.05);
+      }
+
+      .company-logo {
+        position: absolute;
+        bottom: 20px;
+        left: 20px;
+        height: 40px !important;
+        width: auto !important;
+        filter: brightness(0) invert(1);
+        opacity: 0.8;
+      }
+
+      .content-side {
+        position: relative;
+        padding: 40px;
+      }
+
+      .quote-icon {
+        color: #3b82f6;
+        opacity: 0.1;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+
+      .quote {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 40px 0;
+        color: #333;
+      }
+
+      .author {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+      }
+
+      .author strong {
+        font-size: 20px;
+        color: #1a1a1a;
+      }
+
+      .author span {
+        font-size: 16px;
+        color: #666;
+      }
+
+      /* Navigation buttons */
+      .nav-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 48px;
+        height: 48px;
+        border: none;
+        border-radius: 50%;
+        background: white;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        cursor: pointer;
+        z-index: 10;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #666;
+        transition: all 0.3s ease;
+      }
+
+      .nav-btn:hover {
+        background: #f8f9fa;
+        color: #3b82f6;
+        transform: translateY(-50%) scale(1.1);
+      }
+
+      .prev {
+        left: 20px;
+      }
+
+      .next {
+        right: 20px;
+      }
+
+      /* Indicators */
+      .slider-indicators {
+        display: flex;
+        justify-content: center;
+        gap: 12px;
+        margin-top: 40px;
+      }
+
+      .indicator {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        border: none;
+        padding: 0;
+        background: #ddd;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .indicator.active {
+        background: #3b82f6;
+        transform: scale(1.3);
+      }
+
+      @media (max-width: 1024px) {
+        .testimonial-inner {
+          grid-template-columns: 300px 1fr;
+          gap: 40px;
+        }
+
+        .image-side {
+          height: 400px;
+        }
+
+        .quote {
+          font-size: 20px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .testimonials {
+          padding: 60px 0;
+        }
+
+        .testimonial-inner {
+          grid-template-columns: 1fr;
+        }
+
+        .image-side {
+          height: 350px;
+        }
+
+        .content-side {
+          padding: 20px 0;
+        }
+
+        .quote {
+          font-size: 18px;
+          margin: 30px 0;
+        }
+
+        .nav-btn {
+          width: 40px;
+          height: 40px;
+        }
+      }
+    </style>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const track = document.querySelector('.testimonials-track');
+        const slides = document.querySelectorAll('.testimonial');
+        const indicators = document.querySelectorAll('.indicator');
+        const prevBtn = document.querySelector('.prev');
+        const nextBtn = document.querySelector('.next');
+        let currentIndex = 0;
+
+        function goToSlide(index) {
+          if (index < 0) index = slides.length - 1;
+          if (index >= slides.length) index = 0;
+
+          track.style.transform = `translateX(-${index * 100}%)`;
+          currentIndex = index;
+
+          // Update indicators
+          indicators.forEach((indicator, i) => {
+            indicator.classList.toggle('active', i === currentIndex);
+          });
+        }
+
+        // Event listeners
+        prevBtn.addEventListener('click', () => goToSlide(currentIndex - 1));
+        nextBtn.addEventListener('click', () => goToSlide(currentIndex + 1));
+
+        indicators.forEach((indicator, index) => {
+          indicator.addEventListener('click', () => goToSlide(index));
+        });
+
+        // Optional: Auto-play
+        let interval = setInterval(() => goToSlide(currentIndex + 1), 5000);
+
+        // Pause auto-play on hover
+        track.addEventListener('mouseenter', () => clearInterval(interval));
+        track.addEventListener('mouseleave', () => {
+          clearInterval(interval);
+          interval = setInterval(() => goToSlide(currentIndex + 1), 5000);
+        });
+      });
+    </script>
+      <style>
+        .testimonials h2 {
+          opacity: 0;
+          transform: translateY(20px);
+          transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+
+        .testimonials h2.appear {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      </style>
+
+      <script>
+        document.addEventListener('DOMContentLoaded', () => {
+          const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('appear');
+              }
+            });
+          }, {
+            threshold: 0.1,
+            rootMargin: '-50px'
+          });
+
+          // Observer uniquement le titre
+          const title = document.querySelector('.testimonials h2');
+          if (title) observer.observe(title);
+        });
+      </script>
+      <style>
+        /* Animation des titres */
+        .case-studies h2,
+        .faq-header h2 {
+          opacity: 0;
+          transform: translateY(20px);
+          transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+
+        .case-studies h2.appear,
+        .faq-header h2.appear {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      </style>
+
+      <script>
+        document.addEventListener('DOMContentLoaded', () => {
+          const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('appear');
+              }
+            });
+          }, {
+            threshold: 0.1,
+            rootMargin: '-50px'
+          });
+
+          // Observer les deux titres
+          const titles = document.querySelectorAll('.case-studies h2, .faq-header h2');
+          titles.forEach(title => observer.observe(title));
+        });
+      </script>
+<section id="case-studies" class="case-studies">
+<div class="case-studies-container">
+      <h2>Études de Cas</h2>
+      <p class="case-studies-subtitle"> Découvrez comment nos clients innovent avec l'IA</p>
+
+      <div class="case-grid">
+        <div class="case-card">
+          <div class="case-image">
+            <img src="img/Watchfid.jpg" alt="Banking Case Study">
+          </div>
+          <div class="case-content">
+            <span class="case-tag">Luxe</span>
+            <h3>Watchfid : l’horlogerie d’expertise à l’ère de l’intelligence artificielle</h3>
+            <p>Quand l’intelligence artificielle devient le moteur de l’expertise horlogère.</p>
+            <a href="usecase_watchfid.html" class="case-link">Lire l'étude de cas →</a>
+          </div>
+        </div>
+
+        <div class="case-card">
+          <div class="case-image">
+            <img src="img/promemoria.jpg" alt="Healthcare Case Study">
+          </div>
+          <div class="case-content">
+            <span class="case-tag">Juridique</span>
+            <h3>Promemoria : quand l’intelligence artificielle sublime l’expertise humaine</h3>
+            <p>Préserver l’expertise humaine : comment intègrer l’IA sans compromettre un savoir-faire unique.</p>
+            <a href="usecase_promemoria.html" class="case-link">Lire l'étude de cas →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  <section class="faq">
+    <div class="faq-container">
+      <div class="faq-header">
+        <h2>Questions Fréquentes</h2>
+        <p>Tout ce que vous devez savoir sur nos solutions d'IA.</p>
+      </div>
+
+      <div class="accordion">
+        <div class="accordion-item">
+          <button class="accordion-button">
+            Comment démarrer avec vos solutions d'IA ?
+            <span class="icon">+</span>
+          </button>
+          <div class="accordion-content">
+            <p>Nous commençons par un diagnostic approfondi de vos besoins, suivi d'une démonstration personnalisée. Notre équipe vous accompagne ensuite pas à pas dans l'implémentation de la solution adaptée à votre contexte.</p>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-button">
+            Quels types de données pouvez-vous traiter ?
+            <span class="icon">+</span>
+          </button>
+          <div class="accordion-content">
+            <p>Nous traitons une large gamme de données : textuelles, numériques, structurées ou non structurées. Nos solutions s'adaptent à vos sources de données existantes tout en respectant les normes de sécurité et de confidentialité.</p>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-button">
+            Combien de temps dure l'implémentation ?
+            <span class="icon">+</span>
+          </button>
+          <div class="accordion-content">
+            <p>La durée varie selon la complexité du projet, mais nous visons généralement 4 à 8 semaines pour un déploiement initial. Nous privilégions une approche agile avec des résultats rapides et des améliorations continues.</p>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-button">
+            Quelles sont vos mesures de sécurité ?
+            <span class="icon">+</span>
+          </button>
+          <div class="accordion-content">
+            <p>Nous appliquons les plus hauts standards de sécurité avec chiffrement de bout en bout, authentification multi-facteurs, et conformité RGPD. Vos données restent votre propriété et sont traitées selon vos exigences de confidentialité.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-footer">
+        <p>Vous ne trouvez pas la réponse que vous cherchez ?</p>
+        <a href="contact.html" class="btn-contact">Contactez-nous</a>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .faq {
+      padding: 100px 0;
+      background: rgb(250,247,242);
+    }
+
+    .faq-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .faq-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .faq-header h2 {
+      font-size: 36px;
+      font-weight: bold;
+      margin-bottom: 16px;
+      background: linear-gradient(135deg, #3b82f6, #f97316);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .faq-header p {
+      font-size: 18px;
+      color: #666;
+    }
+
+    .accordion {
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    }
+
+    .accordion-item {
+      border-bottom: 1px solid #eee;
+    }
+
+    .accordion-item:last-child {
+      border-bottom: none;
+    }
+
+    .accordion-button {
+      width: 100%;
+      text-align: left;
+      padding: 24px 32px;
+      font-size: 16px;
+      font-weight: 500;
+      color: #1a1a1a;
+      background: none;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .accordion-button .icon {
+      font-size: 24px;
+      transition: transform 0.3s ease;
+    }
+
+    .accordion-button:hover {
+      background: rgba(59, 130, 246, 0.05);
+    }
+
+    .accordion-item.active .accordion-button .icon {
+      transform: rotate(45deg);
+    }
+
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease-out;
+    }
+
+    .accordion-content p {
+      padding: 0 32px 24px;
+      margin: 0;
+      color: #666;
+      line-height: 1.6;
+    }
+
+    .accordion-item.active .accordion-content {
+      max-height: 1000px;
+      transition: max-height 0.5s ease-in;
+    }
+
+    .faq-footer {
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .faq-footer p {
+      margin-bottom: 20px;
+      color: #666;
+    }
+
+    .btn-contact {
+      display: inline-block;
+      padding: 12px 32px;
+      background: linear-gradient(135deg, #3b82f6, #f97316);
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 500;
+      transition: transform 0.2s ease;
+    }
+
+    .btn-contact:hover {
+      transform: translateY(-2px);
+    }
+
+    @media (max-width: 768px) {
+      .faq {
+        padding: 60px 0;
+      }
+
+      .accordion-button {
+        padding: 20px 24px;
+      }
+
+      .accordion-content p {
+        padding: 0 24px 20px;
+      }
+    }
+  </style>
+
+  <script>
+    document.querySelectorAll('.accordion-button').forEach(button => {
+      button.addEventListener('click', () => {
+        const accordionItem = button.parentElement;
+        const isActive = accordionItem.classList.contains('active');
+
+        // Ferme tous les items
+        document.querySelectorAll('.accordion-item').forEach(item => {
+          item.classList.remove('active');
+        });
+
+        // Si l'item n'était pas actif, l'ouvre
+        if (!isActive) {
+          accordionItem.classList.add('active');
+        }
+      });
+    });
+  </script>
+  <section class="blog">
+    <div class="container">
+      <h2 class="case-studies-container">Nos dernières actualités</h2>
+
+      <nav class="filter-bar">
+        <button class="filter-btn active">ALL</button>
+        <button class="filter-btn">LIVRES BLANCS</button>
+        <button class="filter-btn">ÉTUDES DE CAS</button>
+        <button class="filter-btn">DEEP LEARNING</button>
+        <button class="filter-btn">TUTORIELS</button>
+        <button class="filter-btn">INDUSTRY</button>
+      </nav>
+
+      <div class="blog-grid">
+        <a href="article_1.html" class="blog-card">
+          <div class="card-image">
+            <div class="gradient-bg gradient-alt">
+              <div class="grain-overlay"></div>
+              <div class="content">
+                <div class="gradient-text">LES PETITS LLMs</div>
+              </div>
+              <div class="card-logo">
+                <svg class="logo-icon" viewBox="0 0 24 24" width="32" height="32">
+                  <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"
+                        stroke="currentColor" fill="none" stroke-width="2" />
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="card-content">
+            <span class="card-category">ÉTUDE</span>
+            <time class="card-date">25 Novembre 2024</time>
+            <h3>IA et Pertinence : Adapter les Modèles à vos Données et Besoins Métier</h3>
+            <span class="card-author">Par Martial Roberge</span>
+          </div>
+        </a>
+
+        <!-- Voice Moderation -->
+        <a href="article_2.html" class="blog-card">
+          <div class="card-image">
+            <div class="gradient-bg gradient-main">
+              <div class="grain-overlay"></div>
+              <div class="content">
+                <div class="gradient-text">IA & SÉCURITÉ</div>
+              </div>
+              <div class="card-logo">
+                <svg class="logo-icon" viewBox="0 0 24 24" width="32" height="32">
+                  <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"
+                        stroke="currentColor" fill="none" stroke-width="2" />
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="card-content">
+            <span class="card-category">ÉTUDE</span>
+            <time class="card-date">12 Novembre 2024</time>
+            <h3>Sécurité et intelligence artificielle : choisir la bonne solution pour votre entreprise.
+            </h3>
+            <span class="card-author">Par Martial Roberge</span>
+          </div>
+        </a>
+
+        <!-- Speech-to-Text -->
+        <a href="article_3.html" class="blog-card">
+          <div class="card-image">
+            <div class="gradient-bg gradient-alt">
+              <div class="grain-overlay"></div>
+              <div class="content">
+                <div class="gradient-text">No DATA = No IA</div>
+              </div>
+              <div class="card-logo">
+                <svg class="logo-icon" viewBox="0 0 24 24" width="32" height="32">
+                  <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"
+                        stroke="currentColor" fill="none" stroke-width="2" />
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="card-content">
+            <span class="card-category">ÉTUDE</span>
+            <time class="card-date">04 Septembre 2024</time>
+            <h3>La donnée : clé de voûte de l’intelligence artificielle en entreprise.</h3>
+            <span class="card-author">Par Martial Roberge</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .blog {
+      padding: 120px 0;
+      background: linear-gradient(160deg, #faf9f7 0%, #f8fafc 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 48px;
+      font-weight: 800;
+      margin-bottom: 48px;
+      background: linear-gradient(135deg, #3b82f6 0%, #f97316 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      letter-spacing: -0.02em;
+    }
+
+    .filter-bar {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 48px;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 8px;
+      background: rgba(255, 255, 255, 0.5);
+      border-radius: 32px;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
+    }
+
+    .filter-btn {
+      padding: 12px 24px;
+      border: none;
+      border-radius: 24px;
+      font-size: 15px;
+      font-weight: 600;
+      background: transparent;
+      color: #666;
+      cursor: pointer;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .filter-btn:hover {
+      transform: translateY(-2px);
+      color: #3b82f6;
+    }
+
+    .filter-btn.active {
+      background: linear-gradient(135deg, #3b82f6, #f97316);
+      color: white;
+      box-shadow: 0 4px 16px rgba(59, 130, 246, 0.3);
+    }
+
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+      gap: 32px;
+      padding: 8px;
+    }
+
+    .blog-card {
+      background: white;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .blog-card:hover {
+      transform: translateY(-12px);
+      box-shadow: 0 12px 48px rgba(59, 130, 246, 0.12);
+    }
+
+    .card-image {
+      height: 260px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .code-bg {
+      background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
+      padding: 32px;
+    }
+
+    .code-bg pre {
+      margin: 0;
+      color: #fff;
+      font-family: 'Fira Code', monospace;
+      font-size: 15px;
+      line-height: 1.6;
+      opacity: 0.9;
+    }
+
+    .gradient-bg {
+      height: 100%;
+      background-size: 200% 200%;
+      animation: gradientMove 8s ease infinite;
+    }
+
+    .gradient-main {
+      background: linear-gradient(135deg, #3b82f6, #f97316, #3b82f6);
+    }
+
+    .gradient-alt {
+      background: linear-gradient(135deg, #f97316, #3b82f6, #f97316);
+    }
+
+    .grain-overlay {
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%' height='100%' filter='url(%23noise)' opacity='0.1'/%3E%3C/svg%3E");
+      opacity: 0.15;
+      mix-blend-mode: overlay;
+    }
+
+    .content {
+      position: relative;
+      z-index: 2;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 48px;
+      text-align: center;
+      color: white;
+    }
+
+    .gradient-text {
+      font-size: 32px;
+      font-weight: 700;
+      color: white;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .card-logo {
+      position: absolute;
+      bottom: 24px;
+      right: 24px;
+      z-index: 3;
+      color: white;
+      opacity: 0.9;
+      transition: all 0.3s ease;
+    }
+
+    .blog-card:hover .card-logo {
+      transform: scale(1.1);
+      opacity: 1;
+    }
+
+    .card-content {
+      padding: 32px;
+    }
+
+    .card-category {
+      background: linear-gradient(135deg, #3b82f6, #f97316);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-size: 15px;
+      font-weight: 700;
+      display: inline-block;
+      margin-bottom: 12px;
+    }
+
+    .card-date {
+      color: #666;
+      font-size: 14px;
+      display: block;
+      margin-bottom: 16px;
+      opacity: 0.8;
+    }
+
+    .card-content h3 {
+      margin: 0 0 16px;
+      font-size: 20px;
+      line-height: 1.4;
+      color: #1a1a1a;
+      font-weight: 700;
+    }
+
+    .card-author {
+      color: #666;
+      font-size: 15px;
+      font-weight: 500;
+    }
+
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    @media (max-width: 1200px) {
+      .blog-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .blog {
+        padding: 80px 0;
+      }
+
+      .section-title {
+        font-size: 36px;
+        margin-bottom: 32px;
+        color:black;
+      }
+
+      .filter-bar {
+        gap: 8px;
+        margin-bottom: 32px;
+      }
+
+      .filter-btn {
+        padding: 8px 16px;
+        font-size: 14px;
+      }
+
+      .blog-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      .card-image {
+        height: 220px;
+      }
+
+      .gradient-text {
+        font-size: 24px;
+      }
+
+      .card-content {
+        padding: 24px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .section-title {
+        font-size: 28px;
+        color: #1a1a1a;
+      }
+
+      .filter-bar {
+        padding: 4px;
+      }
+
+      .filter-btn {
+        padding: 6px 12px;
+        font-size: 13px;
+      }
+
+      .card-image {
+        height: 200px;
+      }
+
+      .gradient-text {
+        font-size: 20px;
+      }
+    }
+  </style>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <!-- Logo et description -->
+      <div class="footer-brand">
+        <img src="/img/logo3.png" alt="Logo" class="footer-logo">
+        <p class="footer-description">
+          Transformez vos données en insights actionables. Nous vous aidons à prendre les meilleures décisions pour votre entreprise.
+        </p>
+        <div class="social-links">
+          <a href="#" class="social-link" aria-label="LinkedIn">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+              <rect x="2" y="9" width="4" height="12"/>
+              <circle cx="4" cy="4" r="2"/>
+            </svg>
+          </a>
+          <a href="#" class="social-link" aria-label="HF">
+            <svg viewBox="0 0 120 120" width="24" height="24" fill="currentColor">
+              <path d="M37.4,84.9c-2.1,0-4.1-0.4-6-1.2c-1.8-0.8-3.4-1.9-4.7-3.2c-1.3-1.4-2.4-3-3.1-4.8c-0.7-1.8-1.1-3.8-1.1-5.8  c0-2.1,0.4-4,1.1-5.8c0.7-1.8,1.8-3.4,3.1-4.8c1.3-1.4,2.9-2.5,4.7-3.2c1.8-0.8,3.9-1.2,6-1.2c2.1,0,4.1,0.4,6,1.2  c1.8,0.8,3.4,1.9,4.7,3.2c1.3,1.4,2.4,3,3.1,4.8c0.7,1.8,1.1,3.8,1.1,5.8c0,2.1-0.4,4-1.1,5.8c-0.7,1.8-1.8,3.4-3.1,4.8  c-1.3,1.4-2.9,2.5-4.7,3.2C41.5,84.5,39.5,84.9,37.4,84.9z M37.4,60.9c-2.1,0-3.8,0.7-5.1,2.1c-1.3,1.4-2,3.2-2,5.5  c0,2.2,0.7,4.1,2,5.5c1.3,1.4,3.1,2.1,5.1,2.1s3.8-0.7,5.1-2.1c1.3-1.4,2-3.2,2-5.5c0-2.2-0.7-4.1-2-5.5  C41.2,61.6,39.5,60.9,37.4,60.9z" /><path d="M82.6,84.9c-2.1,0-4.1-0.4-6-1.2c-1.8-0.8-3.4-1.9-4.7-3.2c-1.3-1.4-2.4-3-3.1-4.8c-0.7-1.8-1.1-3.8-1.1-5.8  c0-2.1,0.4-4,1.1-5.8c0.7-1.8,1.8-3.4,3.1-4.8c1.3-1.4,2.9-2.5,4.7-3.2c1.8-0.8,3.9-1.2,6-1.2c2.1,0,4.1,0.4,6,1.2  c1.8,0.8,3.4,1.9,4.7,3.2c1.3,1.4,2.4,3,3.1,4.8c0.7,1.8,1.1,3.8,1.1,5.8c0,2.1-0.4,4-1.1,5.8c-0.7,1.8-1.8,3.4-3.1,4.8  c-1.3,1.4-2.9,2.5-4.7,3.2C86.7,84.5,84.7,84.9,82.6,84.9z M82.6,60.9c-2.1,0-3.8,0.7-5.1,2.1c-1.3,1.4-2,3.2-2,5.5  c0,2.2,0.7,4.1,2,5.5c1.3,1.4,3.1,2.1,5.1,2.1s3.8-0.7,5.1-2.1c1.3-1.4,2-3.2,2-5.5c0-2.2-0.7-4.1-2-5.5  C86.4,61.6,84.7,60.9,82.6,60.9z" /><path d="M60,97.9c-2.1,0-4-0.2-5.8-0.7c-1.8-0.5-3.4-1.1-4.8-2c-1.4-0.8-2.6-1.8-3.6-3c-1-1.1-1.8-2.3-2.3-3.6  c-0.5-1.3-0.8-2.6-0.8-4c0-1.4,0.3-2.7,0.8-4c0.5-1.3,1.3-2.5,2.3-3.6c1-1.1,2.2-2.1,3.6-3c1.4-0.8,3-1.5,4.8-2  c1.8-0.5,3.7-0.7,5.8-0.7c2.1,0,4,0.2,5.8,0.7c1.8,0.5,3.4,1.1,4.8,2c1.4,0.8,2.6,1.8,3.6,3c1,1.1,1.8,2.3,2.3,3.6  c0.5,1.3,0.8,2.6,0.8,4c0,1.4-0.3,2.7-0.8,4c-0.5,1.3-1.3,2.5-2.3,3.6c-1,1.1-2.2,2.1-3.6,3c-1.4,0.8-3,1.5-4.8,2  C64,97.7,62.1,97.9,60,97.9z M60,77.9c-2.1,0-3.8,0.7-5.1,2.1c-1.3,1.4-2,3.2-2,5.5c0,2.2,0.7,4.1,2,5.5c1.3,1.4,3.1,2.1,5.1,2.1  s3.8-0.7,5.1-2.1c1.3-1.4,2-3.2,2-5.5c0-2.2-0.7-4.1-2-5.5C63.8,78.6,62.1,77.9,60,77.9z" /><path d="M60,66.9c-2.1,0-4-0.2-5.8-0.7c-1.8-0.5-3.4-1.1-4.8-2c-1.4-0.8-2.6-1.8-3.6-3c-1-1.1-1.8-2.3-2.3-3.6  c-0.5-1.3-0.8-2.6-0.8-4c0-1.4,0.3-2.7,0.8-4c0.5-1.3,1.3-2.5,2.3-3.6c1-1.1,2.2-2.1,3.6-3c1.4-0.8,3-1.5,4.8-2  c1.8-0.5,3.7-0.7,5.8-0.7c2.1,0,4,0.2,5.8,0.7c1.8,0.5,3.4,1.1,4.8,2c1.4,0.8,2.6,1.8,3.6,3c1,1.1,1.8,2.3,2.3,3.6  c0.5,1.3,0.8,2.6,0.8,4c0,1.4-0.3,2.7-0.8,4c-0.5,1.3-1.3,2.5-2.3,3.6c-1,1.1-2.2,2.1-3.6,3c-1.4,0.8-3,1.5-4.8,2  C64,66.7,62.1,66.9,60,66.9z M60,46.9c-2.1,0-3.8,0.7-5.1,2.1c-1.3,1.4-2,3.2-2,5.5c0,2.2,0.7,4.1,2,5.5c1.3,1.4,3.1,2.1,5.1,2.1  s3.8-0.7,5.1-2.1c1.3-1.4,2-3.2,2-5.5c0-2.2-0.7-4.1-2-5.5C63.8,47.6,62.1,46.9,60,46.9z" /><path d="M60,35.9c-2.1,0-4-0.2-5.8-0.7c-1.8-0.5-3.4-1.1-4.8-2c-1.4-0.8-2.6-1.8-3.6-3c-1-1.1-1.8-2.3-2.3-3.6  c-0.5-1.3-0.8-2.6-0.8-4c0-1.4,0.3-2.7,0.8-4c0.5-1.3,1.3-2.5,2.3-3.6c1-1.1,2.2-2.1,3.6-3c1.4-0.8,3-1.5,4.8-2  c1.8-0.5,3.7-0.7,5.8-0.7c2.1,0,4,0.2,5.8,0.7c1.8,0.5,3.4,1.1,4.8,2c1.4,0.8,2.6,1.8,3.6,3c1,1.1,1.8,2.3,2.3,3.6  c0.5,1.3,0.8,2.6,0.8,4c0,1.4-0.3,2.7-0.8,4c-0.5,1.3-1.3,2.5-2.3,3.6c-1,1.1-2.2,2.1-3.6,3c-1.4,0.8-3,1.5-4.8,2  C64,35.7,62.1,35.9,60,35.9z M60,15.9c-2.1,0-3.8,0.7-5.1,2.1c-1.3,1.4-2,3.2-2,5.5c0,2.2,0.7,4.1,2,5.5c1.3,1.4,3.1,2.1,5.1,2.1  s3.8-0.7,5.1-2.1c1.3-1.4,2-3.2,2-5.5c0-2.2-0.7-4.1-2-5.5C63.8,16.6,62.1,15.9,60,15.9z" />
+            </svg>
+          </a>
+          <a href="#" class="social-link" aria-label="GitHub">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Navigation -->
+      <div class="footer-nav">
+        <div class="footer-nav-column">
+          <h4>Solutions</h4>
+          <a href="#">Analytics</a>
+          <a href="#">Data Science</a>
+          <a href="#">Cloud Services</a>
+          <a href="#">Consulting</a>
+        </div>
+        <div class="footer-nav-column">
+          <h4>Entreprise</h4>
+          <a href="#">À propos</a>
+          <a href="#">Carrières</a>
+          <a href="#">Blog</a>
+          <a href="#">Contact</a>
+        </div>
+        <div class="footer-nav-column">
+          <h4>Légal</h4>
+          <a href="#">Confidentialité</a>
+          <a href="#">Conditions</a>
+          <a href="#">Cookies</a>
+        </div>
+      </div>
+
+      <!-- Newsletter -->
+      <div class="footer-newsletter">
+        <h4>Newsletter</h4>
+        <p>Restez informé de nos dernières actualités</p>
+        <form class="newsletter-form">
+          <input type="email" placeholder="Votre email" required>
+          <button type="submit">S'abonner</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Copyright -->
+    <div class="footer-bottom">
+      <div class="footer-bottom-content">
+        <p>© 2024 Lexia France. Tous droits réservés.</p>
+        <div class="footer-bottom-links">
+          <a href="#">Politique de confidentialité</a>
+          <span>•</span>
+          <a href="#">Mentions légales</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+</html>
+
+<script src="js/main.js"></script>
+</body>
+</html>
