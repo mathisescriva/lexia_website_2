@@ -324,45 +324,21 @@
       <button class="filter-btn active" data-category="all">ALL</button>
       <button class="filter-btn" data-category="livres-blancs">LIVRES BLANCS</button>
       <button class="filter-btn" data-category="etudes">ÉTUDES DE CAS</button>
-      <button class="filter-btn" data-category="deep-learning">DEEP LEARNING</button>
+      <button class="filter-btn" data-category="deep-learning">ÉTUDES</button>
       <button class="filter-btn" data-category="tutoriels">TUTORIELS</button>
-      <button class="filter-btn" data-category="industry">INDUSTRY</button>
     </nav>
 
     <div class="blog-grid">
       <!-- Article 1 - Code Example -->
-      <a href="/article-1" class="blog-card" data-category="tutoriels">
-        <div class="card-image code-bg">
-            <pre><code>
-import assemblyai as aai
-from utils.zoom import ZoomClient
 
-config = aai.TranscriptionConfig(
-    multi_channel=True
-)
-transcriber = aai.Transcriber(
-    config=config)</code></pre>
-          <div class="card-logo">
-            <svg class="logo-icon" viewBox="0 0 24 24" width="32" height="32">
-              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" fill="none" stroke-width="2" />
-            </svg>
-          </div>
-        </div>
-        <div class="card-content">
-          <span class="card-category">TUTORIELS</span>
-          <time class="card-date">November 25, 2024</time>
-          <h3>Transcription multicanal avec notre API</h3>
-          <span class="card-author">Par Marc Dupont</span>
-        </div>
-      </a>
 
       <!-- Article 2 - Voice Moderation -->
-      <a href="/article-2" class="blog-card" data-category="industry">
+      <a href="article_1.html" class="blog-card" data-category="livres-blancs">
         <div class="card-image">
           <div class="gradient-bg gradient-main">
             <div class="grain-overlay"></div>
             <div class="content">
-              <div class="gradient-text">Voice Content Moderation with AI</div>
+              <div class="gradient-text">Les Petits LLms</div>
             </div>
             <div class="card-logo">
               <svg class="logo-icon" viewBox="0 0 24 24" width="32" height="32">
@@ -372,20 +348,20 @@ transcriber = aai.Transcriber(
           </div>
         </div>
         <div class="card-content">
-          <span class="card-category">INDUSTRY</span>
+          <span class="card-category">LIVRE BLANC</span>
           <time class="card-date">November 25, 2024</time>
-          <h3>L'IA au service de la modération vocale</h3>
-          <span class="card-author">Par Sophie Martin</span>
+          <h3>IA et Pertinence : Adapter les Modèles à vos Données et Besoins Métier</h3>
+          <span class="card-author">Par Martial Roberge</span>
         </div>
       </a>
 
       <!-- Article 3 - Speech-to-Text -->
-      <a href="/article-3" class="blog-card" data-category="tutoriels">
+      <a href="article_2.html" class="blog-card" data-category="livres-blancs">
         <div class="card-image">
           <div class="gradient-bg gradient-alt">
             <div class="grain-overlay"></div>
             <div class="content">
-              <div class="gradient-text">Speech-to-Text avec Lexia</div>
+              <div class="gradient-text">IA & SÉCURITÉ</div>
             </div>
             <div class="card-logo">
               <svg class="logo-icon" viewBox="0 0 24 24" width="32" height="32">
@@ -395,10 +371,32 @@ transcriber = aai.Transcriber(
           </div>
         </div>
         <div class="card-content">
-          <span class="card-category">TUTORIELS</span>
-          <time class="card-date">November 25, 2024</time>
-          <h3>Comment implémenter notre API en JavaScript</h3>
-          <span class="card-author">Par Lucas Bernard</span>
+          <span class="card-category">LIVRE BLANC</span>
+          <time class="card-date">12 Novembre, 2024</time>
+          <h3>Sécurité et IA : choisir la bonne solution pour votre entreprise</h3>
+          <span class="card-author">Par Martial Roberge</span>
+        </div>
+      </a>
+
+      <a href="article_3.html" class="blog-card" data-category="livres-blancs">
+        <div class="card-image">
+          <div class="gradient-bg gradient-alt">
+            <div class="grain-overlay"></div>
+            <div class="content">
+              <div class="gradient-text">No DATA = No IA</div>
+            </div>
+            <div class="card-logo">
+              <svg class="logo-icon" viewBox="0 0 24 24" width="32" height="32">
+                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" fill="none" stroke-width="2" />
+              </svg>
+            </div>
+          </div>
+        </div>
+        <div class="card-content">
+          <span class="card-category">LIVRE BLANC</span>
+          <time class="card-date">04 Septembre 2024</time>
+          <h3>La donnée : clé de voûte de l’intelligence artificielle en entreprise</h3>
+          <span class="card-author">Par Martial Roberge</span>
         </div>
       </a>
 
@@ -492,7 +490,8 @@ transcriber = aai.Transcriber(
         filterButtons.forEach(btn => btn.classList.remove('active'));
         button.classList.add('active');
 
-        const category = button.textContent.trim().toLowerCase();
+        // Utiliser data-category au lieu du texte
+        const category = button.getAttribute('data-category').toLowerCase();
 
         blogCards.forEach(card => {
           if (category === 'all') {
