@@ -237,10 +237,6 @@ nav {
   transition: 0.2s;
 }
 
-.gradient-blob.blob-1 {
-  display: none;
-}
-
 @media (max-width: 1024px) {
   .nav-container {
     padding: 0 24px;
@@ -300,6 +296,10 @@ nav {
 
   .hero-cta {
     margin-left: 0;
+  }
+
+  .gradient-blob.blob-1 {
+    display: none;
   }
 }
 
