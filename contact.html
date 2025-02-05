@@ -4,17 +4,78 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact - Lexia</title>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <link rel="stylesheet" href="css/styles.css">
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lexia - AI Solutions</title>
-  <link rel="stylesheet" href="css/styles.css">
-  <!-- Ajoutez Marked.js -->
-  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 
   <style>
+    /* Styles du message de remerciement */
+    .thank-you-message {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.95);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .thank-you-message.show {
+      display: flex;
+      opacity: 1;
+    }
+
+    .thank-you-content {
+      text-align: center;
+      padding: 2rem;
+      max-width: 600px;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      transform: translateY(20px);
+      transition: transform 0.3s ease;
+    }
+
+    .thank-you-message.show .thank-you-content {
+      transform: translateY(0);
+    }
+
+    .thank-you-content h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      background: linear-gradient(135deg, #3b82f6, #f97316);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .thank-you-content p {
+      font-size: 1.2rem;
+      color: #666;
+      margin-bottom: 2rem;
+    }
+
+    .thank-you-content .close-button {
+      display: inline-block;
+      padding: 1rem 2rem;
+      background: linear-gradient(135deg, #3b82f6, #f97316);
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 500;
+      cursor: pointer;
+      border: none;
+      transition: transform 0.2s;
+    }
+
+    .thank-you-content .close-button:hover {
+      transform: translateY(-2px);
+    }
+
     * {
       margin: 0;
       padding: 0;
@@ -670,32 +731,34 @@
     </div>
   </div>
 
-  <form class="contact-form">
+  <form class="contact-form" id="contactForm">
     <div class="form-grid">
       <div class="form-field">
-        <input type="text" id="name" placeholder=" " required>
+        <input type="text" name="name" id="name" placeholder=" " required>
         <label for="name">Nom complet</label>
       </div>
 
       <div class="form-field">
-        <input type="email" id="email" placeholder=" " required>
+        <input type="email" name="email" id="email" placeholder=" " required>
         <label for="email">Email</label>
       </div>
 
       <div class="form-field">
-        <input type="tel" id="phone" placeholder=" " required>
+        <input type="tel" name="phone" id="phone" placeholder=" " required>
         <label for="phone">Téléphone</label>
       </div>
 
       <div class="form-field">
-        <input type="text" id="company" placeholder=" " required>
+        <input type="text" name="company" id="company" placeholder=" " required>
         <label for="company">Entreprise</label>
       </div>
 
       <div class="form-field full textarea">
-        <textarea id="message" placeholder=" " required></textarea>
+        <textarea name="message" id="message" placeholder=" " required></textarea>
         <label for="message">Votre message</label>
       </div>
+      <input type="hidden" name="_subject" value="Nouveau message depuis le site Lexia">
+      <input type="hidden" name="_next" value="https://lexiapro.fr/merci.html">
     </div>
 
     <button type="submit" class="submit-btn">Envoyer le message</button>
@@ -870,6 +933,58 @@
     </div>
   </div>
 </footer>
+<!-- Message de remerciement -->
+<div class="thank-you-message" id="thankYouMessage">
+  <div class="thank-you-content">
+    <h2>Merci pour votre message !</h2>
+    <p>Nous avons bien reçu votre demande et nous vous répondrons dans les plus brefs délais.</p>
+    <button class="close-button" onclick="closeThankYouMessage()">Retour au site</button>
+  </div>
+</div>
+
 <script src="js/main.js"></script>
+<script>
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  
+  // Récupérer les données du formulaire
+  const formData = {
+    name: this.querySelector('#name').value,
+    email: this.querySelector('#email').value,
+    phone: this.querySelector('#phone').value,
+    company: this.querySelector('#company').value,
+    message: this.querySelector('#message').value
+  };
+  
+  // Envoyer les données via fetch
+  fetch('http://localhost:3000/send-email', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(formData)
+
+  .then(response => {
+    if (response.ok) {
+      return response.json();
+    }
+    throw new Error('Erreur lors de l\'envoi du formulaire');
+  })
+  .then(data => {
+    // Afficher le message de remerciement
+    document.getElementById('thankYouMessage').classList.add('show');
+    // Réinitialiser le formulaire
+    this.reset();
+  })
+  .catch(error => {
+    console.error('Error:', error);
+    alert('Une erreur est survenue. Veuillez réessayer.');
+  });
+});
+
+function closeThankYouMessage() {
+  document.getElementById('thankYouMessage').classList.remove('show');
+}
+</script>
 </body>
 </html>

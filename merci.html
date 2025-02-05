@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Merci - Lexia</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    .thank-you-container {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+      background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(249, 115, 22, 0.1));
+    }
+
+    .thank-you-content {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .thank-you-content h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      background: linear-gradient(135deg, #3b82f6, #f97316);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .thank-you-content p {
+      font-size: 1.2rem;
+      color: #666;
+      margin-bottom: 2rem;
+    }
+
+    .back-home {
+      display: inline-block;
+      padding: 1rem 2rem;
+      background: linear-gradient(135deg, #3b82f6, #f97316);
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 500;
+      transition: transform 0.2s;
+    }
+
+    .back-home:hover {
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+<body>
+  <div class="thank-you-container">
+    <div class="thank-you-content">
+      <h1>Merci pour votre message !</h1>
+      <p>Nous avons bien reçu votre demande et nous vous répondrons dans les plus brefs délais.</p>
+      <a href="index.html" class="back-home">Retour à l'accueil</a>
+    </div>
+  </div>
+</body>
+</html>

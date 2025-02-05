@@ -23,15 +23,51 @@ mobileMenuBtn.addEventListener('click', () => {
   mobileNav.classList.toggle('active');
 });
 
-// Close dropdowns when clicking outside
-document.addEventListener('click', (e) => {
-  const dropdowns = document.querySelectorAll('.dropdown');
-  dropdowns.forEach(dropdown => {
-    if (!dropdown.contains(e.target)) {
-      const chevron = dropdown.querySelector('.chevron');
+// Gestion des dropdowns
+const dropdownButtons = document.querySelectorAll('.dropdown-button');
+
+dropdownButtons.forEach(button => {
+  button.addEventListener('click', (e) => {
+    e.preventDefault();
+    const dropdown = button.closest('.dropdown');
+    const chevron = button.querySelector('.chevron');
+    const dropdownContent = dropdown.querySelector('.dropdown-content');
+
+    // Fermer tous les autres dropdowns
+    dropdownButtons.forEach(otherButton => {
+      if (otherButton !== button) {
+        const otherDropdown = otherButton.closest('.dropdown');
+        const otherChevron = otherButton.querySelector('.chevron');
+        const otherContent = otherDropdown.querySelector('.dropdown-content');
+        otherContent.style.display = 'none';
+        otherChevron.style.transform = 'rotate(0)';
+      }
+    });
+
+    // Toggle le dropdown actuel
+    if (dropdownContent.style.display === 'block') {
+      dropdownContent.style.display = 'none';
       chevron.style.transform = 'rotate(0)';
+    } else {
+      dropdownContent.style.display = 'block';
+      chevron.style.transform = 'rotate(180deg)';
     }
   });
+});
+
+// Fermer les dropdowns quand on clique en dehors
+document.addEventListener('click', (e) => {
+  if (!e.target.closest('.dropdown')) {
+    const dropdowns = document.querySelectorAll('.dropdown');
+    dropdowns.forEach(dropdown => {
+      const chevron = dropdown.querySelector('.chevron');
+      const dropdownContent = dropdown.querySelector('.dropdown-content');
+      if (dropdownContent) {
+        dropdownContent.style.display = 'none';
+        chevron.style.transform = 'rotate(0)';
+      }
+    });
+  }
 });
 // Ajoutez ce code dans votre fichier main.js
 // main.js
