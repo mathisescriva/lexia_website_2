@@ -237,6 +237,29 @@ nav {
   transition: 0.2s;
 }
 
+.gradient-blob.blob-1 {
+  display: none;
+}
+
+.code-visual {
+  position: relative;
+}
+
+.video-logo {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  width: 80px;
+  height: auto;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+  z-index: 2;
+}
+
+.video-logo:hover {
+  opacity: 1;
+}
+
 @media (max-width: 1024px) {
   .nav-container {
     padding: 0 24px;
@@ -296,10 +319,6 @@ nav {
 
   .hero-cta {
     margin-left: 0;
-  }
-
-  .gradient-blob.blob-1 {
-    display: none;
   }
 }
 
