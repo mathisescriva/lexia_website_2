@@ -254,6 +254,80 @@ nav {
   .logo img {
     height: 28px;
   }
+
+  .hero-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+    padding: 80px 20px;
+  }
+
+  .hero-visual {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .code-visual {
+    width: 100%;
+    aspect-ratio: 16/9;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #heroVideo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 24px;
+  }
+
+  .hero h1 {
+    font-size: 48px;
+    margin-left: 0;
+  }
+
+  .hero p {
+    margin-left: 0;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .hero-cta {
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-container {
+    padding: 60px 16px;
+  }
+
+  .hero h1 {
+    font-size: 36px;
+  }
+
+  .hero p {
+    font-size: 16px;
+  }
+
+  .hero-visual {
+    max-width: 100%;
+  }
+
+  .code-visual {
+    aspect-ratio: 4/3;
+    border-radius: 16px;
+  }
+
+  #heroVideo {
+    border-radius: 16px;
+  }
+
+  .play-button {
+    transform: scale(0.8);
+  }
 }
 .hero {
   padding-top: 120px;
