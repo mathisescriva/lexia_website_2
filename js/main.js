@@ -17,10 +17,31 @@ window.addEventListener('scroll', () => {
 // Mobile menu toggle
 const mobileMenuBtn = document.querySelector('.mobile-menu');
 const mobileNav = document.getElementById('mobileNav');
+const closeMenuBtn = document.getElementById('closeMenuBtn');
+
+const closeMenu = () => {
+  mobileMenuBtn.classList.remove('active');
+  mobileNav.classList.remove('active');
+};
 
 mobileMenuBtn.addEventListener('click', () => {
   mobileMenuBtn.classList.toggle('active');
   mobileNav.classList.toggle('active');
+});
+
+closeMenuBtn.addEventListener('click', closeMenu);
+
+// Fermer le menu quand on clique sur un lien
+const mobileNavLinks = mobileNav.querySelectorAll('a');
+mobileNavLinks.forEach(link => {
+  link.addEventListener('click', closeMenu);
+});
+
+// Fermer le menu quand on clique en dehors
+document.addEventListener('click', (e) => {
+  if (!mobileNav.contains(e.target) && !mobileMenuBtn.contains(e.target) && mobileNav.classList.contains('active')) {
+    closeMenu();
+  }
 });
 
 // Gestion des dropdowns
