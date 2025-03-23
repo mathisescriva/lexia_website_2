@@ -1,0 +1,222 @@
+/* Styles pour les cartes de fonctionnalités */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+  margin-bottom: 60px;
+  max-width: 1200px;
+  margin: 50px auto 60px;
+}
+
+.feature-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 3rem;
+  background: linear-gradient(145deg, #ffffff, #f8faff);
+  border-radius: 20px;
+  box-shadow: 0 15px 30px -10px rgba(59, 130, 246, 0.15);
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(59, 130, 246, 0.08);
+}
+
+.feature-card:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 25px 40px -12px rgba(59, 130, 246, 0.25);
+}
+
+.feature-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 6px;
+  background: linear-gradient(90deg, #3b82f6, #60a5fa);
+}
+
+.feature-card-icon {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 70px;
+  height: 70px;
+  opacity: 0.06;
+  z-index: 0;
+}
+
+.feature-logo-container {
+  height: 110px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30px;
+  position: relative;
+  z-index: 1;
+}
+
+.feature-logo {
+  height: auto;
+  max-height: 110px;
+  transition: transform 0.3s ease;
+}
+
+.feature-card:hover .feature-logo {
+  transform: scale(1.05);
+}
+
+.feature-title {
+  margin: 0 0 20px 0;
+  font-size: 1.8rem;
+  color: #1e293b;
+  position: relative;
+  z-index: 1;
+  font-weight: 600;
+}
+
+.feature-description {
+  color: #64748b;
+  line-height: 1.7;
+  margin-bottom: 30px;
+  position: relative;
+  z-index: 1;
+}
+
+.feature-list {
+  text-align: left;
+  width: 100%;
+  margin: 0 0 35px 0;
+  position: relative;
+  z-index: 1;
+  padding: 0;
+  list-style: none;
+}
+
+.feature-list-item {
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  background-color: rgba(59, 130, 246, 0.05);
+  padding: 12px 18px;
+  border-radius: 10px;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.feature-list-item:hover {
+  transform: translateX(5px);
+  background-color: rgba(59, 130, 246, 0.08);
+}
+
+.feature-list-icon {
+  color: #3b82f6;
+  margin-right: 14px;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.feature-button {
+  padding: 0.9rem 2.2rem;
+  border-radius: 50px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  background: linear-gradient(135deg, #3b82f6, #60a5fa);
+  border: none;
+  box-shadow: 0 10px 20px -5px rgba(59, 130, 246, 0.3);
+  position: relative;
+  z-index: 1;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+  color: white;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.feature-button:hover {
+  box-shadow: 0 15px 25px -5px rgba(59, 130, 246, 0.4);
+  transform: translateY(-3px);
+}
+
+/* Styles pour la section datacenter */
+.datacenter-image {
+  text-align: center;
+  margin-top: 60px;
+  position: relative;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.datacenter-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+  box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.25);
+}
+
+.datacenter-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(59,130,246,0.15), rgba(249,115,22,0.15));
+  z-index: 1;
+}
+
+.datacenter-img {
+  max-width: 100%;
+  display: block;
+  transform: scale(1.02);
+}
+
+/* Styles responsifs */
+@media (max-width: 992px) {
+  .features-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  
+  .feature-card {
+    padding: 2.5rem;
+  }
+  
+  .feature-title {
+    font-size: 1.6rem;
+  }
+  
+  .datacenter-image {
+    margin-top: 40px;
+  }
+}
+
+@media (max-width: 576px) {
+  .feature-card {
+    padding: 2rem;
+  }
+  
+  .feature-logo-container {
+    height: 90px;
+    margin-bottom: 20px;
+  }
+  
+  .feature-logo {
+    max-height: 90px;
+  }
+  
+  .feature-title {
+    font-size: 1.5rem;
+  }
+  
+  .feature-list-item {
+    padding: 10px 15px;
+  }
+  
+  .feature-button {
+    padding: 0.8rem 1.8rem;
+  }
+}

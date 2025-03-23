@@ -1,0 +1,86 @@
+/* Styles pour la section des partenaires */
+.partners-section {
+  background-color: transparent; /* Fond transparent pour utiliser le fond du body */
+  padding: 20px 0 60px;
+  width: 100%;
+  text-align: center;
+  margin-top: -30px; /* Remonter la section */
+}
+
+.partners-container {
+  width: 100%;
+  padding: 0;
+}
+
+.partners-title {
+  font-size: 1.2rem;
+  color: #333;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+
+.partners-logos {
+  display: flex;
+  justify-content: space-around; /* Distribuer sur toute la largeur */
+  align-items: center;
+  flex-wrap: nowrap;
+  width: 100%;
+  padding: 10px 0;
+  overflow: hidden; /* Masquer tout du00e9bordement */
+}
+
+.partner-logo {
+  height: 45px;
+  width: auto;
+  filter: brightness(0); /* Rendre les logos noirs */
+  opacity: 0.8;
+  margin: 0 10px;
+}
+
+/* Styles spu00e9cifiques pour les logos */
+.logo-ca {
+  height: 75px; /* Logo encore plus grand que les autres */
+  margin-top: -10px; /* Ajustement vertical */
+}
+
+.logo-action {
+  height: 25px; /* Logo beaucoup plus petit que les autres */
+}
+
+.logo-il {
+  height: 68px; /* Logo plus grand que les standards */
+  margin-top: -8px; /* Ajustement vertical */
+}
+
+.logo-omnes {
+  height: 35px; /* Logo plus petit que les standards */
+}
+
+/* Styles responsifs */
+@media (max-width: 768px) {
+  .partners-logos {
+    gap: 20px;
+  }
+  
+  .partner-logo {
+    height: 40px;
+  }
+  
+  .logo-ca {
+    height: 65px;
+  }
+  
+  .logo-action {
+    height: 20px;
+  }
+  
+  .logo-il {
+    height: 58px;
+  }
+  
+  .logo-omnes {
+    height: 30px;
+  }
+}
