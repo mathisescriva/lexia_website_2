@@ -2467,3 +2467,8 @@ html {
 }
 
 /* Le reste de vos styles pour .process-grid etc... */
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+/* Le reste de vos styles pour .process-grid etc... */

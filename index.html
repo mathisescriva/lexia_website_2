@@ -33,7 +33,7 @@
           </svg>
         </a>
         <div class="dropdown-content">
-          <a href="feature1.html">Collecte Intelligente de Donnée</a>
+          <a href="feature1.html">Elixir - IA Documentaire</a>
           <a href="feature2.html">Exploration Contextuelle des Données</a>
           <a href="feature3.html">Interaction Humaine Augmentée</a>
         </div>
@@ -57,7 +57,7 @@
     <div class="mobile-nav" id="mobileNav">
       <div class="mobile-nav-content">
         <a href="index.html#features" class="mobile-nav-link">Nos Solutions</a>
-        <a href="feature1.html" class="mobile-nav-sublink">Collecte Intelligente de Donnée</a>
+        <a href="feature1.html" class="mobile-nav-sublink">Elixir - IA Documentaire</a>
         <a href="feature2.html" class="mobile-nav-sublink">Exploration Contextuelle des Données</a>
         <a href="feature3.html" class="mobile-nav-sublink">Interaction Humaine Augmentée</a>
         <a href="index.html#case-studies" class="mobile-nav-link">Use Cases</a>
@@ -275,10 +275,25 @@
       </div>
     </div>
   </div>
+  
+
+  </style>
+  
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       const video = document.getElementById('heroVideo');
       const playButton = document.getElementById('playButton');
+      const scrollIndicator = document.querySelector('.scroll-indicator');
+      
+      // Ajouter la fonction de du00e9filement au clic sur la flu00e8che
+      if (scrollIndicator) {
+        scrollIndicator.addEventListener('click', function() {
+          window.scrollTo({
+            top: window.innerHeight,
+            behavior: 'smooth'
+          });
+        });
+      }
       const playIcon = `<svg viewBox="0 0 24 24" width="48" height="48"><path d="M8 5v14l11-7z" fill="#fff"/></svg>`;
       const pauseIcon = `<svg viewBox="0 0 24 24" width="48" height="48"><path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z" fill="#fff"/></svg>`;
 
@@ -446,53 +461,78 @@
       <h2>Ensemble, créons des solutions d'excellence</h2>
       <p class="features-subtitle">Vos ambitions inspirent nos solutions. Grâce à notre expertise en IA, nous transformons vos données en outils stratégiques : collectez, analysez et dialoguez autrement. Ensemble, nous réinventons vos performances pour dépasser vos objectifs.</p>
 
-      <div class="features-box">
-        <div class="features-grid">
-          <div class="feature-card">
-            <div class="feature-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12V7H5a2 2 0 0 1 0-4h14v4"/><path d="M3 12v5h16a2 2 0 0 1 0 4H3v-4"/></svg>
+      <div class="features-box" style="max-width: 1200px; margin: 0 auto;">
+        <div class="features-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; margin-bottom: 50px;">
+          <div class="feature-card" style="display: flex; flex-direction: column; align-items: center; text-align: center; padding: 2.5rem; background: linear-gradient(145deg, #ffffff, #f8faff); border-radius: 16px; box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.15); transition: transform 0.3s ease, box-shadow 0.3s ease; position: relative; overflow: hidden; border: 1px solid rgba(59, 130, 246, 0.1);">
+            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 5px; background: linear-gradient(90deg, #3b82f6, #60a5fa);"></div>
+            <div style="position: absolute; top: 20px; right: 20px; width: 60px; height: 60px; opacity: 0.05; z-index: 0;">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#3b82f6" width="60" height="60"><path d="M12 0L1.608 6v12L12 24l10.392-6V6L12 0zm-1.225 18.15c-.473.213-1.026-.06-1.026-.566V6.566c0-.506.553-.78 1.026-.566l7.146 3.9a.649.649 0 0 1 0 1.132l-7.146 7.118z"/></svg>
             </div>
-            <h3>Collecte Intelligente de Donnée</h3>
-            <p>Automatisez la récupération et l'intégration de données depuis vos sources internes et externes grâce à des outils avancés de traitement et de synchronisation.</p>
-            <ul class="process-details">
-              <li>Simplification de l'intégration</li>
-              <li>Synchronisation en temps réel</li>
-              <li>Accélération des analyses de données</li>
+            <div style="height: 110px; display: flex; align-items: center; justify-content: center; margin-bottom: 25px; position: relative; z-index: 1;">
+              <img src="img/logo_elixir_2.png" alt="Logo Elixir" style="height: 40px;">
+            </div>
+
+            <h3 style="margin: 0 0 15px 0; font-size: 1.6rem; color: #1e293b; position: relative; z-index: 1;">Elixir - IA Documentaire</h3>
+            <p style="color: #64748b; line-height: 1.6; margin-bottom: 25px; position: relative; z-index: 1;">Solution d'IA souveraine et sécurisée, conçue pour réinventer l'analyse documentaire. Exploitez pleinement la propriété intellectuelle de votre entreprise via un dashboard intuitif.</p>
+            <ul class="process-details" style="text-align: left; width: 100%; margin: 0 0 30px 0; position: relative; z-index: 1;">
+              <li style="margin-bottom: 15px; display: flex; align-items: center; background-color: rgba(59, 130, 246, 0.05); padding: 10px 15px; border-radius: 8px;">
+                <span style="color: #3b82f6; margin-right: 12px; font-size: 1.1rem;">→</span> VLMs de haute technologie propriétaires
+              </li>
+              <li style="margin-bottom: 15px; display: flex; align-items: center; background-color: rgba(59, 130, 246, 0.05); padding: 10px 15px; border-radius: 8px;">
+                <span style="color: #3b82f6; margin-right: 12px; font-size: 1.1rem;">→</span> Analyse documentaire avancée
+              </li>
+              <li style="margin-bottom: 15px; display: flex; align-items: center; background-color: rgba(59, 130, 246, 0.05); padding: 10px 15px; border-radius: 8px;">
+                <span style="color: #3b82f6; margin-right: 12px; font-size: 1.1rem;">→</span> Sécurité et souveraineté des données
+              </li>
             </ul>
-            <button class="btn btn-primary2" onclick="window.location.href='feature1.html'">Voir plus</button>
+            <button class="btn btn-primary2" style="padding: 0.85rem 2rem; border-radius: 50px; font-weight: 600; transition: all 0.3s ease; background: linear-gradient(135deg, #3b82f6, #60a5fa); border: none; box-shadow: 0 10px 15px -3px rgba(59, 130, 246, 0.25); position: relative; z-index: 1; text-transform: uppercase; font-size: 0.9rem; letter-spacing: 0.5px;" onclick="window.location.href='feature1.html'">Voir plus</button>
           </div>
 
-          <div class="feature-card">
-            <div class="feature-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h6"/><path d="m12 12 4 10 1.7-4.3L22 16Z"/></svg>
+          <div class="feature-card" style="display: flex; flex-direction: column; align-items: center; text-align: center; padding: 2.5rem; background: linear-gradient(145deg, #ffffff, #f8faff); border-radius: 16px; box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.15); transition: transform 0.3s ease, box-shadow 0.3s ease; position: relative; overflow: hidden; border: 1px solid rgba(59, 130, 246, 0.1);">
+            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 5px; background: linear-gradient(90deg, #3b82f6, #60a5fa);"></div>
+            <div style="position: absolute; top: 20px; right: 20px; width: 60px; height: 60px; opacity: 0.05; z-index: 0;">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#3b82f6" width="60" height="60"><path d="M21.66 10.37a.62.62 0 0 0-.66.16L19 12.53v-6.9a1.5 1.5 0 0 0-1.5-1.5h-15a1.5 1.5 0 0 0-1.5 1.5v12.18a1.55 1.55 0 0 0 .45 1.05l.12.13c.23.17.49.29.78.29h15.15a1.5 1.5 0 0 0 1.5-1.5V13.4l2.22 2.13a.62.62 0 0 0 .78 0 .63.63 0 0 0 0-.77l-2.31-2.22 2.31-2.25a.63.63 0 0 0-.34-.92Z"/></svg>
             </div>
-            <h3>Exploration Contextuelle des Données</h3>
-            <p>Transformez vos bases de données en moteurs de réponses précises et pertinentes. Obtenez des insights sur-mesure en connectant et enrichissant vos informations.</p>
-            <ul class="process-details">
-              <li>Données toujours à portée de main</li>
-              <li>Insights personnalisés en temps réel</li>
-              <li>Prise de décision optimisée</li>
+            <div style="height: 110px; display: flex; align-items: center; justify-content: center; margin-bottom: 25px; position: relative; z-index: 1;">
+              <img src="img/Gilbert.png" alt="Logo Gilbert" style="height: 110px;">
+            </div>
+            <h3 style="margin: 0 0 15px 0; font-size: 1.6rem; color: #1e293b; position: relative; z-index: 1;">Gilbert - IA conversationnelle</h3>
+            <p style="color: #64748b; line-height: 1.6; margin-bottom: 25px; position: relative; z-index: 1;">Solution conçue pour réinventer vos conversations, réunions, appels, conférences et les transformer en insight stratégique. Une précision de transcription inégalée, des comptes rendus sur mesure, et une sécurité totale.</p>
+            <ul class="process-details" style="text-align: left; width: 100%; margin: 0 0 30px 0; position: relative; z-index: 1;">
+              <li style="margin-bottom: 15px; display: flex; align-items: center; background-color: rgba(59, 130, 246, 0.05); padding: 10px 15px; border-radius: 8px;">
+                <span style="color: #3b82f6; margin-right: 12px; font-size: 1.1rem;">→</span> Transcription de précision inégalée
+              </li>
+              <li style="margin-bottom: 15px; display: flex; align-items: center; background-color: rgba(59, 130, 246, 0.05); padding: 10px 15px; border-radius: 8px;">
+                <span style="color: #3b82f6; margin-right: 12px; font-size: 1.1rem;">→</span> Comptes rendus stratégiques sur mesure
+              </li>
+              <li style="margin-bottom: 15px; display: flex; align-items: center; background-color: rgba(59, 130, 246, 0.05); padding: 10px 15px; border-radius: 8px;">
+                <span style="color: #3b82f6; margin-right: 12px; font-size: 1.1rem;">→</span> Sécurité et confidentialité totales
+              </li>
             </ul>
-            <button class="btn btn-primary2" onclick="window.location.href='feature2.html'">Voir plus</button>
+            <button class="btn btn-primary2" style="padding: 0.85rem 2rem; border-radius: 50px; font-weight: 600; transition: all 0.3s ease; background: linear-gradient(135deg, #3b82f6, #60a5fa); border: none; box-shadow: 0 10px 15px -3px rgba(59, 130, 246, 0.25); position: relative; z-index: 1; text-transform: uppercase; font-size: 0.9rem; letter-spacing: 0.5px;" onclick="window.location.href='feature2.html'">Voir plus</button>
           </div>
-
-          <div class="feature-card">
-            <div class="feature-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><path d="M8 13h2"/><path d="M8 17h2"/><path d="M14 13h2"/><path d="M14 17h2"/></svg>
-            </div>
-            <h3>Interaction Humaine Augmentée</h3>
-            <p>Révolutionnez vos échanges avec une intelligence capable de comprendre le contexte, d'anticiper les besoins et de répondre de façon naturelle et intuitive.</p>
-            <ul class="process-details">
-              <li>Expériences interactives personnalisées</li>
-              <li>Relations clients optimisées</li>
-              <li>Communication naturelle et intuitive</li>
-            </ul>
-            <button class="btn btn-primary2" onclick="window.location.href='URL-DE-VOTRE-PAGE'">Voir plus</button>          </div>
         </div>
 
-        <div class="datacenter-image">
-          <img src="img/test2.jpg" alt="Data Center">
+        <div class="datacenter-image" style="text-align: center; margin-top: 40px; position: relative;">
+
+          <div style="position: relative; overflow: hidden; border-radius: 16px; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);">
+            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to bottom, rgba(59,130,246,0.2), rgba(249,115,22,0.2)); z-index: 1;"></div>
+            <img src="img/test2.jpg" alt="Data Center" style="max-width: 100%; display: block; transform: scale(1.02);">
+          </div>
         </div>
+
+        <style>
+          .feature-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+          }
+          .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.15);
+          }
+          .feature-card:hover button {
+            transform: scale(1.05);
+          }
+        </style>
       </div>
     </div>
     <section>
