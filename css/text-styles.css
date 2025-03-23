@@ -1,0 +1,51 @@
+/* Styles pour améliorer l'harmonie des textes */
+
+/* Styles pour les titres */
+h1 {
+  margin-bottom: 25px;
+  font-size: 2.8rem;
+  line-height: 1.2;
+  color: #333;
+  font-weight: 700;
+}
+
+h1 span {
+  display: inline-block;
+}
+
+/* Styles pour les paragraphes */
+p {
+  margin-bottom: 30px;
+  line-height: 1.7;
+  color: #555;
+  font-size: 1.1rem;
+  max-width: 90%;
+}
+
+/* Styles pour les boutons */
+/* Commentu00e9 pour conserver le style original du bouton
+.btn-primary {
+  padding: 12px 24px;
+  font-weight: 600;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+}
+*/
+
+.hero-cta {
+  margin-top: 10px;
+}
+
+/* Ajustements responsifs */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2.2rem;
+  }
+  
+  p {
+    font-size: 1rem;
+    max-width: 100%;
+  }
+}

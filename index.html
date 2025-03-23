@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Accueil - Lexia AI Solutions</title>
   <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/video-fix.css">
+  <link rel="stylesheet" href="/css/text-styles.css">
 </head>
 <body>
 <div class="gradient-background">
@@ -34,8 +36,7 @@
         </a>
         <div class="dropdown-content">
           <a href="feature1.html">Elixir - IA Documentaire</a>
-          <a href="feature2.html">Exploration Contextuelle des Données</a>
-          <a href="feature3.html">Interaction Humaine Augmentée</a>
+          <a href="feature2.html">Gilbert - IA Conversationnelle</a>
         </div>
       </div>
       <a href="index.html#case-studies" class="nav-link">Use Cases</a>
@@ -58,8 +59,7 @@
       <div class="mobile-nav-content">
         <a href="index.html#features" class="mobile-nav-link">Nos Solutions</a>
         <a href="feature1.html" class="mobile-nav-sublink">Elixir - IA Documentaire</a>
-        <a href="feature2.html" class="mobile-nav-sublink">Exploration Contextuelle des Données</a>
-        <a href="feature3.html" class="mobile-nav-sublink">Interaction Humaine Augmentée</a>
+        <a href="feature2.html" class="mobile-nav-sublink">Gilbert - IA Conversationnelle</a>
         <a href="index.html#case-studies" class="mobile-nav-link">Use Cases</a>
         <a href="index.html#methodology" class="mobile-nav-link">Notre Méthode</a>
         <a href="team.html" class="mobile-nav-link">L'équipe Lexia</a>
@@ -104,8 +104,8 @@
 
   .code-visual {
     position: relative;
-    width: 90%; /* Réduit la taille du carré */
-    aspect-ratio: 1/1;
+    width: 90%; /* Largeur du conteneur */
+    aspect-ratio: 16/9; /* Format vidéo standard */
     background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(249, 115, 22, 0.1));
     border-radius: 24px;
     overflow: hidden;
@@ -260,7 +260,7 @@
     <div class="hero-visual">
       <div class="code-visual">
         <video id="heroVideo" width="100%" height="100%" style="object-fit: cover;">
-          <source src="hero.mp4" type="video/mp4">
+          <source src="img/motion_design_lexia.mp4" type="video/mp4">
         </video>
         <img src="img/logo3.png" alt="Logo" class="video-logo">
         <div id="playButton" class="play-button">
@@ -355,7 +355,7 @@
     }
     .code-visual {
       width: 100%;
-      aspect-ratio: 1/1; /* Pour garantir un carré parfait */
+      aspect-ratio: 16/9; /* Format vidéo standard */
     }
 
     video {
@@ -397,8 +397,8 @@
 
     .code-visual {
       position: relative;
-      width: 90%; /* Réduit la taille du carré */
-      aspect-ratio: 1/1;
+      width: 90%; /* Largeur du conteneur */
+      aspect-ratio: 16/9; /* Format vidéo standard */
       background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(249, 115, 22, 0.1));
       border-radius: 24px;
       overflow: hidden;
@@ -2052,10 +2052,8 @@
       <div class="footer-nav">
         <div class="footer-nav-column">
           <h4>Solutions</h4>
-          <a href="#">Analytics</a>
-          <a href="#">Data Science</a>
-          <a href="#">Cloud Services</a>
-          <a href="#">Consulting</a>
+          <a href="feature1.html">Elixir - IA Documentaire</a>
+          <a href="feature2.html">Gilbert - IA Conversationnelle</a>
         </div>
         <div class="footer-nav-column">
           <h4>Entreprise</h4>
