@@ -17,15 +17,15 @@
   background: linear-gradient(145deg, #ffffff, #f8faff);
   border-radius: 20px;
   box-shadow: 0 15px 30px -10px rgba(59, 130, 246, 0.15);
-  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
   position: relative;
   overflow: hidden;
   border: 1px solid rgba(59, 130, 246, 0.08);
 }
 
 .feature-card:hover {
-  transform: translateY(-12px);
-  box-shadow: 0 25px 40px -12px rgba(59, 130, 246, 0.25);
+  transform: translateY(-5px);
+  box-shadow: 0 20px 30px -10px rgba(59, 130, 246, 0.2);
 }
 
 .feature-card::before {
@@ -61,11 +61,6 @@
 .feature-logo {
   height: auto;
   max-height: 110px;
-  transition: transform 0.3s ease;
-}
-
-.feature-card:hover .feature-logo {
-  transform: scale(1.05);
 }
 
 .feature-title {
@@ -102,11 +97,10 @@
   background-color: rgba(59, 130, 246, 0.05);
   padding: 12px 18px;
   border-radius: 10px;
-  transition: transform 0.2s ease, background-color 0.2s ease;
+  transition: background-color 0.2s ease;
 }
 
 .feature-list-item:hover {
-  transform: translateX(5px);
   background-color: rgba(59, 130, 246, 0.08);
 }
 
@@ -121,7 +115,7 @@
   padding: 0.9rem 2.2rem;
   border-radius: 50px;
   font-weight: 600;
-  transition: all 0.3s ease;
+  transition: box-shadow 0.2s ease;
   background: linear-gradient(135deg, #3b82f6, #60a5fa);
   border: none;
   box-shadow: 0 10px 20px -5px rgba(59, 130, 246, 0.3);
@@ -137,8 +131,7 @@
 }
 
 .feature-button:hover {
-  box-shadow: 0 15px 25px -5px rgba(59, 130, 246, 0.4);
-  transform: translateY(-3px);
+  box-shadow: 0 12px 20px -5px rgba(59, 130, 246, 0.35);
 }
 
 /* Styles pour la section datacenter */
