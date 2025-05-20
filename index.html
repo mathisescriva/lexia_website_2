@@ -10,6 +10,89 @@
   <link rel="stylesheet" href="/css/partners.css">
   <link rel="stylesheet" href="/css/features-cards.css">
   <link rel="stylesheet" href="/css/responsive.css">
+  <!-- Style pour la notification du blog -->
+  <style>
+    .blog-notification {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: linear-gradient(135deg, #3b82f6, #f97316);
+      color: white;
+      padding: 20px 25px;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+      z-index: 1000;
+      transform: translateY(200%);
+      opacity: 0;
+      transition: transform 0.5s ease, opacity 0.5s ease;
+      display: flex;
+      align-items: center;
+      max-width: 400px;
+    }
+    
+    .blog-notification.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    
+    .blog-notification-content {
+      flex: 1;
+    }
+    
+    .blog-notification h3 {
+      margin: 0 0 5px 0;
+      font-size: 16px;
+      font-weight: 600;
+    }
+    
+    .blog-notification p {
+      margin: 0;
+      font-size: 14px;
+      opacity: 0.9;
+    }
+    
+    .blog-notification-cta {
+      display: inline-block;
+      background-color: white;
+      color: #3b82f6;
+      padding: 8px 16px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+      margin-top: 10px;
+      transition: background-color 0.3s ease;
+    }
+    
+    .blog-notification-cta:hover {
+      background-color: #f8fafc;
+    }
+    
+    .blog-notification-close {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 20px;
+      cursor: pointer;
+      padding: 0;
+      margin-left: 15px;
+      opacity: 0.7;
+      transition: opacity 0.3s ease;
+    }
+    
+    .blog-notification-close:hover {
+      opacity: 1;
+    }
+    
+    @media (max-width: 768px) {
+      .blog-notification {
+        bottom: 20px;
+        right: 20px;
+        left: 20px;
+        max-width: none;
+      }
+    }
+  </style>
 </head>
 <body>
 <div class="gradient-background">
@@ -40,6 +123,7 @@
         <div class="dropdown-content">
           <a href="feature1.html">Elixir - IA Documentaire</a>
           <a href="feature2.html">Gilbert - IA Conversationnelle</a>
+          <a href="transition-ia.html">Accompagnement à la Transition IA</a>
         </div>
       </div>
       <a href="index.html#case-studies" class="nav-link">Use Cases</a>
@@ -63,6 +147,7 @@
         <a href="index.html#features" class="mobile-nav-link">Nos Solutions</a>
         <a href="feature1.html" class="mobile-nav-sublink">Elixir - IA Documentaire</a>
         <a href="feature2.html" class="mobile-nav-sublink">Gilbert - IA Conversationnelle</a>
+        <a href="transition-ia.html" class="mobile-nav-sublink">Accompagnement à la Transition IA</a>
         <a href="index.html#case-studies" class="mobile-nav-link">Use Cases</a>
         <a href="index.html#methodology" class="mobile-nav-link">Notre Méthode</a>
         <a href="team.html" class="mobile-nav-link">L'équipe Lexia</a>
@@ -576,7 +661,7 @@
         <div class="datacenter-image">
           <div class="datacenter-container">
             <div class="datacenter-overlay"></div>
-            <img src="img/test2.jpg" alt="Data Center" class="datacenter-img">
+            <img src="img/Ilab.JPG" alt="Ilab" class="datacenter-img">
           </div>
         </div>
 
@@ -2102,13 +2187,14 @@
           <h4>Solutions</h4>
           <a href="feature1.html">Elixir - IA Documentaire</a>
           <a href="feature2.html">Gilbert - IA Conversationnelle</a>
+          <a href="transition-ia.html">Accompagnement à la Transition IA</a>
         </div>
         <div class="footer-nav-column">
           <h4>Entreprise</h4>
           <a href="#">À propos</a>
           <a href="#">Carrières</a>
-          <a href="#">Blog</a>
-          <a href="#">Contact</a>
+          <a href="blog.html">Blog</a>
+          <a href="contact.html">Contact</a>
         </div>
         <div class="footer-nav-column">
           <h4>Légal</h4>
@@ -2146,5 +2232,26 @@
 </html>
 
 <script src="/js/main.js"></script>
+  <!-- Notification de blog -->
+  <div class="blog-notification" id="blogNotification">
+    <div class="blog-notification-content">
+      <h3>Nouveau sur notre blog</h3>
+      <p>Lexia à l'ASIA STARTUP SUMMIT</p>
+      <a href="blog.html" class="blog-notification-cta">Voir notre dernier article</a>
+    </div>
+    <button class="blog-notification-close" id="closeNotification">&times;</button>
+  </div>
+
+  <script>
+    // Afficher la notification après 12 secondes
+    setTimeout(function() {
+      document.getElementById('blogNotification').classList.add('show');
+    }, 12000);
+    
+    // Fermer la notification
+    document.getElementById('closeNotification').addEventListener('click', function() {
+      document.getElementById('blogNotification').classList.remove('show');
+    });
+  </script>
 </body>
 </html>

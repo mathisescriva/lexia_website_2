@@ -39,7 +39,7 @@
       min-height: 100vh;
       display: flex;
       align-items: center;
-      background: linear-gradient(135deg, rgba(10,36,99,0.03), rgba(62,146,204,0.03));
+      background: var(--beige-gradient);
       overflow: hidden;
       position: relative;
       padding: 0;
@@ -195,7 +195,7 @@
     /* Challenge Section - Version Moderne */
     .challenge-section {
       min-height: 100vh;
-      background: linear-gradient(135deg, rgba(249, 250, 251, 1), rgba(243, 244, 246, 1));
+      background: var(--beige-gradient);
       padding: 120px 0;
       overflow: hidden;
       position: relative;
@@ -209,8 +209,9 @@
       width: 100%;
       height: 100%;
       background-image: 
-        radial-gradient(circle at 20% 30%, rgba(59, 130, 246, 0.03) 0%, transparent 50%),
-        radial-gradient(circle at 80% 70%, rgba(249, 115, 22, 0.03) 0%, transparent 50%);
+        radial-gradient(circle at 20% 30%, rgba(59, 130, 246, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(249, 115, 22, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.8) 0%, transparent 70%);
       z-index: 0;
     }
     
@@ -1187,7 +1188,7 @@
   <style>
     .cta-section {
       padding: 100px 0;
-      background: linear-gradient(135deg, #3b82f6, #f97316);
+      background: linear-gradient(135deg, #0f172a, #1e293b);
       color: white;
       text-align: center;
       position: relative;
@@ -1199,7 +1200,7 @@
       margin: 0 auto;
       padding: 0 2rem;
       position: relative;
-      z-index: 2;
+      z-index: 5;
     }
     
     .cta-title {
@@ -1209,6 +1210,11 @@
       opacity: 0;
       transform: translateY(20px);
       animation: fadeInUp 1s ease-out forwards;
+      background: linear-gradient(135deg, #60a5fa, #f97316);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      color: transparent;
     }
     
     .cta-description {
@@ -1224,28 +1230,124 @@
     
     .cta-btn {
       display: inline-block;
-      background: white;
-      color: #3b82f6;
+      background: linear-gradient(135deg, #3b82f6, #f97316);
+      color: white;
       padding: 1rem 2.5rem;
       border-radius: 50px;
       font-weight: 600;
       text-decoration: none;
       transition: all 0.3s ease;
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
       opacity: 0;
       transform: translateY(20px);
       animation: fadeInUp 1s ease-out 0.6s forwards;
+      position: relative;
+      z-index: 2;
+      overflow: hidden;
     }
     
-    /* Suppression de l'effet de translation au survol du bouton CTA */
+    .cta-btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(255,255,255,0.2), rgba(255,255,255,0));
+      transform: translateX(-100%);
+      transition: transform 0.5s ease;
+    }
+    
+    .cta-btn:hover::before {
+      transform: translateX(100%);
+    }
+    
     .cta-btn:hover {
-      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+      transform: translateY(-2px);
     }
     
     .cta-particles {
       position: absolute;
       inset: 0;
       z-index: 1;
+    }
+    
+    /* Nouveau système de particules */
+    .particles-js-canvas-el {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 2;
+    }
+    
+    /* Effet de vague animée */
+    .wave {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100px;
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%233b82f6" fill-opacity="0.2" d="M0,192L48,186.7C96,181,192,171,288,181.3C384,192,480,224,576,213.3C672,203,768,149,864,144C960,139,1056,181,1152,197.3C1248,213,1344,203,1392,197.3L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
+      background-size: 100% 100px;
+      animation: wave-animation 10s linear infinite;
+      opacity: 0.6;
+      z-index: 3;
+    }
+    
+    .wave-2 {
+      bottom: 0;
+      animation: wave-animation 8s linear reverse infinite;
+      opacity: 0.4;
+      height: 120px;
+      z-index: 2;
+    }
+    
+    @keyframes wave-animation {
+      0% {
+        background-position-x: 0;
+      }
+      100% {
+        background-position-x: 1000px;
+      }
+    }
+    
+    /* Effet de lumière */
+    .light-effect {
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(59, 130, 246, 0.4) 0%, rgba(59, 130, 246, 0) 70%);
+      filter: blur(20px);
+      opacity: 0.7;
+      z-index: 1;
+      animation: light-pulse 8s ease-in-out infinite;
+    }
+    
+    .light-effect-1 {
+      top: -100px;
+      left: 10%;
+    }
+    
+    .light-effect-2 {
+      bottom: -100px;
+      right: 10%;
+      background: radial-gradient(circle, rgba(249, 115, 22, 0.4) 0%, rgba(249, 115, 22, 0) 70%);
+      animation-delay: 2s;
+    }
+    
+    @keyframes light-pulse {
+      0%, 100% {
+        transform: scale(1);
+        opacity: 0.7;
+      }
+      50% {
+        transform: scale(1.2);
+        opacity: 0.5;
+      }
     }
     
     @media (max-width: 768px) {
@@ -1255,6 +1357,15 @@
     }
   </style>
   
+  <!-- Effets de lumière -->  
+  <div class="light-effect light-effect-1"></div>
+  <div class="light-effect light-effect-2"></div>
+  
+  <!-- Effets de vagues -->  
+  <div class="wave"></div>
+  <div class="wave wave-2"></div>
+  
+  <!-- Conteneur pour les particules -->  
   <div class="cta-particles" id="ctaParticles"></div>
   
   <div class="cta-container">
@@ -1277,7 +1388,11 @@
     <!-- Navigation du footer -->
     <div class="footer-nav">
       <div class="footer-nav-column">
-          <h4>Solutions</h4>n          <a href="feature1.html">Elixir - IA Documentaire</a>n          <a href="feature2.html">Gilbert - IA Conversationnelle</a>n          <a href="transition-ia.html">Accompagnement à la Transition IA</a>n        </div>      
+          <h4>Solutions</h4>
+          <a href="feature1.html">Elixir - IA Documentaire</a>
+          <a href="feature2.html">Gilbert - IA Conversationnelle</a>
+          <a href="transition-ia.html">Accompagnement à la Transition IA</a>
+        </div>      
       <div class="footer-nav-column">
         <h4>Entreprise</h4>
         <a href="team.html">Notre équipe</a>
@@ -1418,31 +1533,106 @@
     // Animation pour la section CTA
     const ctaParticles = document.getElementById('ctaParticles');
     
-    function createCtaParticle() {
-      const particle = document.createElement('div');
-      particle.style.position = 'absolute';
-      particle.style.width = Math.random() * 8 + 3 + 'px';
-      particle.style.height = particle.style.width;
-      particle.style.background = 'rgba(255, 255, 255, 0.3)';
-      particle.style.borderRadius = '50%';
-      particle.style.top = Math.random() * 100 + '%';
-      particle.style.left = Math.random() * 100 + '%';
-      particle.style.opacity = '0';
-      particle.style.animation = `ctaParticleAnimation ${Math.random() * 4 + 3}s ease-in-out infinite`;
-      ctaParticles.appendChild(particle);
+    // Nouvelle fonction pour créer des étoiles scintillantes
+    function createStars() {
+      const ctaParticles = document.getElementById('ctaParticles');
       
+      // Vider le conteneur existant
+      while (ctaParticles.firstChild) {
+        ctaParticles.removeChild(ctaParticles.firstChild);
+      }
+      
+      // Créer des étoiles
+      for (let i = 0; i < 100; i++) {
+        const star = document.createElement('div');
+        star.className = 'star';
+        
+        // Style de base pour les étoiles
+        star.style.position = 'absolute';
+        
+        // Taille variable
+        const size = Math.random() * 4 + 1;
+        star.style.width = `${size}px`;
+        star.style.height = `${size}px`;
+        
+        // Position aléatoire
+        star.style.top = `${Math.random() * 100}%`;
+        star.style.left = `${Math.random() * 100}%`;
+        
+        // Couleur et luminosité
+        const isBlue = Math.random() > 0.5;
+        const hue = isBlue ? 210 : 30; // Bleu ou orange
+        const luminosity = Math.random() * 30 + 70; // 70-100%
+        star.style.backgroundColor = `hsl(${hue}, 100%, ${luminosity}%)`;
+        star.style.boxShadow = `0 0 ${size * 2}px hsl(${hue}, 100%, ${luminosity}%)`;
+        star.style.borderRadius = '50%';
+        
+        // Animation de scintillement
+        star.style.animation = `twinkle ${Math.random() * 3 + 2}s ease-in-out infinite ${Math.random() * 5}s`;
+        
+        // Ajouter au DOM
+        ctaParticles.appendChild(star);
+      }
+      
+      // Créer quelques étoiles filantes
+      for (let i = 0; i < 5; i++) {
+        setTimeout(() => {
+          createShootingStar();
+        }, i * 3000); // Espacer les étoiles filantes
+      }
+    }
+    
+    // Fonction pour créer une étoile filante
+    function createShootingStar() {
+      const ctaParticles = document.getElementById('ctaParticles');
+      const shootingStar = document.createElement('div');
+      shootingStar.className = 'shooting-star';
+      
+      // Position de départ (en haut à gauche ou à droite)
+      const startFromRight = Math.random() > 0.5;
+      shootingStar.style.top = `${Math.random() * 50}%`;
+      shootingStar.style.left = startFromRight ? '100%' : '0%';
+      shootingStar.style.position = 'absolute';
+      
+      // Définir les directions pour l'animation
+      const directionX = startFromRight ? -200 : 200;
+      const directionY = Math.random() * 100 + 50;
+      shootingStar.style.setProperty('--direction-x', `${directionX}px`);
+      shootingStar.style.setProperty('--direction-y', `${directionY}px`);
+      
+      // Taille et style
+      shootingStar.style.width = '2px';
+      shootingStar.style.height = '2px';
+      shootingStar.style.backgroundColor = 'white';
+      shootingStar.style.borderRadius = '50%';
+      shootingStar.style.boxShadow = '0 0 10px #fff, 0 0 20px #fff';
+      
+      // Traînée
+      shootingStar.style.backgroundImage = 'linear-gradient(to right, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0) 100%)';
+      shootingStar.style.transform = `rotate(${startFromRight ? '-' : ''}30deg)`;
+      
+      // Animation
+      const duration = Math.random() * 2 + 1;
+      shootingStar.style.animation = `shootingStar ${duration}s linear forwards`;
+      
+      // Ajouter au DOM
+      ctaParticles.appendChild(shootingStar);
+      
+      // Supprimer après l'animation
       setTimeout(() => {
-        particle.remove();
-      }, 7000);
+        shootingStar.remove();
+        // Créer une nouvelle étoile filante après un délai
+        setTimeout(() => {
+          createShootingStar();
+        }, Math.random() * 5000 + 2000);
+      }, duration * 1000);
     }
     
-    // Créer des particules initiales pour CTA
-    for (let i = 0; i < 40; i++) {
-      createCtaParticle();
-    }
+    // Initialiser les étoiles
+    createStars();
     
-    // Créer de nouvelles particules périodiquement pour CTA
-    setInterval(createCtaParticle, 200);
+    // Recréer les étoiles lors du redimensionnement
+    window.addEventListener('resize', createStars);
     
     // Animation de défilement pour la flèche
     const scrollArrow = document.getElementById('scrollArrow');
@@ -1505,20 +1695,32 @@
     }
   }
   
-  @keyframes ctaParticleAnimation {
-    0% {
-      transform: translateY(0) scale(0);
-      opacity: 0;
-    }
-    25% {
-      opacity: 0.5;
+  /* Animation pour les étoiles scintillantes */
+  @keyframes twinkle {
+    0%, 100% {
+      opacity: 0.2;
+      transform: scale(0.8);
     }
     50% {
-      transform: translateY(-20px) scale(1);
-      opacity: 0.3;
+      opacity: 1;
+      transform: scale(1.2);
+    }
+  }
+  
+  /* Animation pour les étoiles filantes */
+  @keyframes shootingStar {
+    0% {
+      width: 2px;
+      transform: translateX(0) translateY(0);
+      opacity: 1;
+    }
+    20% {
+      width: 120px;
+      opacity: 1;
     }
     100% {
-      transform: translateY(-40px) scale(0);
+      width: 0;
+      transform: translateX(var(--direction-x, -200px)) translateY(var(--direction-y, 100px));
       opacity: 0;
     }
   }
