@@ -4,13 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Accueil - Lexia AI Solutions</title>
+  <link rel="icon" href="img/logo3.png" type="image/png">
   <style>
     /* Style global pour éliminer le fond beige */
     #supported-by, #supported-by *, .supported-by, .supported-by * {
       background: transparent !important;
     }
     body {
-      background-color: white !important;
       margin: 0;
       padding: 0;
     }
@@ -26,8 +26,32 @@
       margin-bottom: 0;
     }
     /* Éliminer tout espace blanc entre les sections */
-    .methodology + div + .founders {
-      margin-top: -5px !important;
+
+    #founders::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0; 
+      width: 100%;
+      height: 100%;
+      background-image: url('img/fond_ia_humaine.png');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.4;
+      filter: blur(2px);
+      z-index: 0; /* Behind .container content */
+      margin: 0;
+      padding: 0;
+    }
+    
+    /* Masquer tout débordement vertical potentiel */
+    html, body {
+      overflow-x: hidden;
+    }
+    .methodology + div + .founders,
+    .methodology + div + div + .founders {
+      margin-top: 0 !important;
+      border-top: 0 !important;
+      padding-top: 0 !important;
     }
   </style>
   <link rel="stylesheet" href="/css/styles.css">
@@ -36,95 +60,10 @@
   <link rel="stylesheet" href="/css/partners.css">
   <link rel="stylesheet" href="/css/features-cards.css">
   <link rel="stylesheet" href="/css/responsive.css">
-  <!-- Style pour la notification du blog -->
-  <style>
-    .blog-notification {
-      position: fixed;
-      bottom: 30px;
-      right: 30px;
-      background: linear-gradient(135deg, #3b82f6, #f97316);
-      color: white;
-      padding: 20px 25px;
-      border-radius: 12px;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-      z-index: 1000;
-      transform: translateY(200%);
-      opacity: 0;
-      transition: transform 0.5s ease, opacity 0.5s ease;
-      display: flex;
-      align-items: center;
-      max-width: 400px;
-    }
-    
-    .blog-notification.show {
-      transform: translateY(0);
-      opacity: 1;
-    }
-    
-    .blog-notification-content {
-      flex: 1;
-    }
-    
-    .blog-notification h3 {
-      margin: 0 0 5px 0;
-      font-size: 16px;
-      font-weight: 600;
-    }
-    
-    .blog-notification p {
-      margin: 0;
-      font-size: 14px;
-      opacity: 0.9;
-    }
-    
-    .blog-notification-cta {
-      display: inline-block;
-      background-color: white;
-      color: #3b82f6;
-      padding: 8px 16px;
-      border-radius: 6px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 14px;
-      margin-top: 10px;
-      transition: background-color 0.3s ease;
-    }
-    
-    .blog-notification-cta:hover {
-      background-color: #f8fafc;
-    }
-    
-    .blog-notification-close {
-      background: none;
-      border: none;
-      color: white;
-      font-size: 20px;
-      cursor: pointer;
-      padding: 0;
-      margin-left: 15px;
-      opacity: 0.7;
-      transition: opacity 0.3s ease;
-    }
-    
-    .blog-notification-close:hover {
-      opacity: 1;
-    }
-    
-    @media (max-width: 768px) {
-      .blog-notification {
-        bottom: 20px;
-        right: 20px;
-        left: 20px;
-        max-width: none;
-      }
-    }
-  </style>
 </head>
 <body>
 <div class="gradient-background">
-  <div class="gradient-blob blob-1"></div>
-  <div class="gradient-blob blob-2"></div>
-  <div class="gradient-blob blob-3"></div>
+
 </div>
 <svg style="display: none;">
   <filter id="noise">
@@ -358,9 +297,7 @@
 <section id="hero" class="hero">
   <img src="img/image_fond_hero.png" class="hero-bg-image" alt="">
   <!-- Ajoutez dans votre section hero, juste après l'ouverture de la balise -->
-  <div class="gradient-blobs">
-    <img src="img/3.png" alt="" class="blob blob-2">
-  </div>
+
   <div class="hero-container">
     <div class="hero-content">
       <h1>
@@ -1086,7 +1023,7 @@
     });
   </script>
 
-  <div style="background-color: #f5f0e6; padding: 0; margin: 0; width: 100%;">
+  <div style="background-color: #f5f0e6; padding: 0; margin: 0; width: 100%; overflow: hidden;">
   <section id="methodology" class="methodology" style="background-color: #f5f0e6; padding-bottom: 60px; margin-bottom: 0; width: 100%;">
     <img src="img/fond_diag.png" class="methodology-bg-image" alt="">
     <div class="container">
@@ -1152,21 +1089,20 @@
       </div>
     </div>
   </section>
-  <section id="founders" class="founders" style="margin-top: 0; border-top: none; background-color: #f5f0e6; padding-top: 40px; width: 100%; position: relative; overflow: hidden;">
-    <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-image: url('img/fond_test.png'); background-size: cover; background-position: top center; z-index: 0; opacity: 0.6;"></div>
-    <div class="container" style="background-color: transparent; box-shadow: none; border-radius: 0; position: relative; z-index: 1;">
+  <section id="founders" class="founders" style="margin: 0; padding: 0; border: none; background-color: #1a202c; width: 100vw; position: relative; overflow: hidden; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw;">
+    <div class="container" style="background-color: transparent; box-shadow: none; border-radius: 0; position: relative; z-index: 1; padding: 70px 32px;">
       <div class="founders-content">
         <div class="founders-image-container">
           <img src="img/image_cofondateurs.png" alt="Martial et Mathis, cofondateurs de Lexia" class="cofounders-img">
         </div>
         <div class="founders-info">
-          <h2><span class="highlight">IA.</span> humaine</h2>
-          <p class="founders-subtitle">L'expertise des ingénieurs au service de votre transformation numérique</p>
-          <p class="founders-description">Ingénieurs de formation, nous combinons expertise technique et vision stratégique pour développer des solutions d'IA souveraines qui transforment votre entreprise.</p>
+          <h2 style="color: #ffffff;"><span class="highlight">IA.</span> humaine</h2>
+          <p class="founders-subtitle" style="color: #e2e8f0;">L'expertise des ingénieurs au service de votre transformation numérique</p>
+          <p class="founders-description" style="color: #cbd5e1;">Ingénieurs de formation, nous combinons expertise technique et vision stratégique pour développer des solutions d'IA souveraines qui transforment votre entreprise.</p>
           
           <div style="display: flex; flex-direction: column; gap: 25px; margin-top: 20px;">
             <div>
-              <h4 style="font-size: 18px; margin-bottom: 15px; color: #333; text-shadow: 0 1px 2px rgba(255,255,255,0.5);">Soutenu par</h4>
+              <h4 style="font-size: 18px; margin-bottom: 15px; color: #e2e8f0; text-shadow: 0 1px 2px rgba(0,0,0,0.3);">Soutenu par</h4>
               <div style="display: flex; gap: 30px; justify-content: flex-start; align-items: center;">
                 <div style="background-color: white; padding: 10px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
                   <img src="img/Logo_Bpifrance.svg.png" alt="BPI France" style="height: 40px; width: auto;" />
@@ -1174,7 +1110,7 @@
                 <div style="background-color: white; padding: 8px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); margin-top: -10px;">
                   <img src="img/Logo_French_Tech.svg.png" alt="French Tech" style="height: 55px; width: auto;" />
                 </div>
-                <a href="team.html" class="team-button" style="display: inline-block; background-color: transparent; color: #333; padding: 10px 20px; border: 1px solid #333; border-radius: 4px; text-decoration: none; font-weight: 400; font-size: 14px; letter-spacing: 0.5px; transition: all 0.3s ease; position: relative; overflow: hidden; margin-left: 20px;" onmouseover="this.style.backgroundColor='rgba(51, 51, 51, 0.05)'; this.style.borderColor='#000'; this.style.transform='translateY(-2px)';" onmouseout="this.style.backgroundColor='transparent'; this.style.borderColor='#333'; this.style.transform='translateY(0)';">Toute l'équipe</a>
+                <a href="team.html" class="team-button" style="display: inline-block; background-color: transparent; color: #ffffff; padding: 10px 20px; border: 1px solid #e2e8f0; border-radius: 4px; text-decoration: none; font-weight: 400; font-size: 14px; letter-spacing: 0.5px; transition: all 0.3s ease; position: relative; overflow: hidden; margin-left: 20px;" onmouseover="this.style.backgroundColor='rgba(255, 255, 255, 0.1)'; this.style.borderColor='#ffffff'; this.style.transform='translateY(-2px)';" onmouseout="this.style.backgroundColor='transparent'; this.style.borderColor='#e2e8f0'; this.style.transform='translateY(0)';">Toute l'équipe</a>
               </div>
             </div>
           </div>
@@ -1186,11 +1122,15 @@
   <style>
     /* Styles pour la section Notre équipe */
     .founders {
-      padding: 60px 0 120px;
+      padding: 0;
+      margin: 0;
       position: relative;
       overflow: hidden;
-      background-color: #f5f0e6;
+      background-color: #1a202c;
       margin-top: 0;
+      box-sizing: border-box;
+      display: block;
+      width: 100%;
     }
     
     /* Suppression de tous les fonds blancs dans la section fondateurs */
@@ -1760,12 +1700,7 @@
 
   <section id="features" class="features" style="background-color: #f5f0e6; margin-top: 0; padding-top: 0;">
     <div class="features-background" style="background-color: #f5f0e6;"></div>
-    <div class="features-blob-left">
-      <img src="img/blob4.png" alt="">
-    </div>
-    <div class="features-blob-right">
-      <img src="img/blob4.png" alt="">
-    </div>
+
     <section>
       <style>
         /* Animation du titre */
@@ -2913,9 +2848,9 @@
     left: -10px;
     right: -10px;
     bottom: -10px;
-    background: url('img/fond_etude.png') no-repeat center center;
+    background: url('img/fond_test2.png') no-repeat center center;
     background-size: cover;
-    filter: blur(5px);
+    opacity: 0.8;
     z-index: -1;
   }
   .case-studies-container {
@@ -2928,23 +2863,28 @@
     padding-top: 50px;
   }
   #case-studies h2 {
-    color: #ffffff;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    font-weight: 600;
+    font-size: 2.75rem;
+    margin-bottom: 16px;
+    text-align: center;
+    color: #000000;
+    font-weight: 700;
   }
   
   #case-studies .case-studies-subtitle {
-    color: #ffffff;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    font-size: 1.15rem;
+    margin-bottom: 40px;
     font-weight: 400;
+    color: #000000;
   }
 </style>
-<section id="case-studies" class="case-studies">
-<div class="case-studies-container">
+<section id="case-studies" class="case-studies" style="position: relative; overflow: hidden; background: none !important; background-color: transparent !important;">
+<div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-image: url('img/fond_test2.png'); background-size: cover; background-position: center; opacity: 0.25; z-index: 0;"></div>
+<div class="case-studies-container" style="position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; text-align: center;">
       <h2>Études de Cas</h2>
-      <p class="case-studies-subtitle"> Découvrez comment nos clients innovent avec l'IA</p>
+      <p class="case-studies-subtitle" style="margin: 0 auto 20px auto; max-width: 80%; display: block; color: #666666;">Découvrez comment nos clients innovent avec l'IA</p>
 
-      <div class="case-grid">
+      <div class="case-grid" style="margin-top: 10px;">
         <div class="case-card" style="background-color: rgba(255, 255, 255, 0.9); box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);">
           <div class="case-image">
             <img src="img/Watchfid.jpg" alt="Banking Case Study">
@@ -2971,7 +2911,95 @@
       </div>
     </div>
 </section>
-</div>
+
+  <section class="blog">
+    <div class="container">
+      <h1 style="font-size: 42px; color: #1a1a1a; text-align: center; margin: 60px 0 40px 0; padding: 0; font-weight: 700; letter-spacing: 0.5px;">Le Blog Lexia</h1>
+
+      <nav class="filter-bar">
+        <button class="filter-btn active">ALL</button>
+        <button class="filter-btn">LIVRES BLANCS</button>
+        <button class="filter-btn">ÉTUDES DE CAS</button>
+        <button class="filter-btn">DEEP LEARNING</button>
+        <button class="filter-btn">TUTORIELS</button>
+        <button class="filter-btn">INDUSTRY</button>
+      </nav>
+
+      <div class="blog-grid">
+        <a href="article_1.html" class="blog-card">
+          <div class="card-image">
+            <div class="gradient-bg gradient-alt">
+              <div class="grain-overlay"></div>
+              <div class="content">
+                <div class="gradient-text">LES PETITS LLMs</div>
+              </div>
+              <div class="card-logo">
+                <svg class="logo-icon" viewBox="0 0 24 24" width="32" height="32">
+                  <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"
+                        stroke="currentColor" fill="none" stroke-width="2" />
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="card-content">
+            <span class="card-category">ÉTUDE</span>
+            <time class="card-date">25 Novembre 2024</time>
+            <h3>IA et Pertinence : Adapter les Modèles à vos Données et Besoins Métier</h3>
+            <span class="card-author">Par Martial Roberge</span>
+          </div>
+        </a>
+
+        <!-- Voice Moderation -->
+        <a href="article_2.html" class="blog-card">
+          <div class="card-image">
+            <div class="gradient-bg gradient-main">
+              <div class="grain-overlay"></div>
+              <div class="content">
+                <div class="gradient-text">IA & SÉCURITÉ</div>
+              </div>
+              <div class="card-logo">
+                <svg class="logo-icon" viewBox="0 0 24 24" width="32" height="32">
+                  <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"
+                        stroke="currentColor" fill="none" stroke-width="2" />
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="card-content">
+            <span class="card-category">ÉTUDE</span>
+            <time class="card-date">12 Novembre 2024</time>
+            <h3>Sécurité et intelligence artificielle : choisir la bonne solution pour votre entreprise.
+            </h3>
+            <span class="card-author">Par Martial Roberge</span>
+          </div>
+        </a>
+
+        <!-- Speech-to-Text -->
+        <a href="article_3.html" class="blog-card">
+          <div class="card-image">
+            <div class="gradient-bg gradient-alt">
+              <div class="grain-overlay"></div>
+              <div class="content">
+                <div class="gradient-text">No DATA = No IA</div>
+              </div>
+              <div class="card-logo">
+                <svg class="logo-icon" viewBox="0 0 24 24" width="32" height="32">
+                  <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"
+                        stroke="currentColor" fill="none" stroke-width="2" />
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="card-content">
+            <span class="card-category">ÉTUDE</span>
+            <time class="card-date">04 Septembre 2024</time>
+            <h3>La donnée : clé de voûte de l'intelligence artificielle en entreprise.</h3>
+            <span class="card-author">Par Martial Roberge</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
 
   <section class="faq">
     <div class="faq-container">
@@ -3179,94 +3207,7 @@
       });
     });
   </script>
-  <section class="blog">
-    <div class="container">
-      <h2 class="case-studies-container">Nos dernières actualités</h2>
-
-      <nav class="filter-bar">
-        <button class="filter-btn active">ALL</button>
-        <button class="filter-btn">LIVRES BLANCS</button>
-        <button class="filter-btn">ÉTUDES DE CAS</button>
-        <button class="filter-btn">DEEP LEARNING</button>
-        <button class="filter-btn">TUTORIELS</button>
-        <button class="filter-btn">INDUSTRY</button>
-      </nav>
-
-      <div class="blog-grid">
-        <a href="article_1.html" class="blog-card">
-          <div class="card-image">
-            <div class="gradient-bg gradient-alt">
-              <div class="grain-overlay"></div>
-              <div class="content">
-                <div class="gradient-text">LES PETITS LLMs</div>
-              </div>
-              <div class="card-logo">
-                <svg class="logo-icon" viewBox="0 0 24 24" width="32" height="32">
-                  <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"
-                        stroke="currentColor" fill="none" stroke-width="2" />
-                </svg>
-              </div>
-            </div>
-          </div>
-          <div class="card-content">
-            <span class="card-category">ÉTUDE</span>
-            <time class="card-date">25 Novembre 2024</time>
-            <h3>IA et Pertinence : Adapter les Modèles à vos Données et Besoins Métier</h3>
-            <span class="card-author">Par Martial Roberge</span>
-          </div>
-        </a>
-
-        <!-- Voice Moderation -->
-        <a href="article_2.html" class="blog-card">
-          <div class="card-image">
-            <div class="gradient-bg gradient-main">
-              <div class="grain-overlay"></div>
-              <div class="content">
-                <div class="gradient-text">IA & SÉCURITÉ</div>
-              </div>
-              <div class="card-logo">
-                <svg class="logo-icon" viewBox="0 0 24 24" width="32" height="32">
-                  <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"
-                        stroke="currentColor" fill="none" stroke-width="2" />
-                </svg>
-              </div>
-            </div>
-          </div>
-          <div class="card-content">
-            <span class="card-category">ÉTUDE</span>
-            <time class="card-date">12 Novembre 2024</time>
-            <h3>Sécurité et intelligence artificielle : choisir la bonne solution pour votre entreprise.
-            </h3>
-            <span class="card-author">Par Martial Roberge</span>
-          </div>
-        </a>
-
-        <!-- Speech-to-Text -->
-        <a href="article_3.html" class="blog-card">
-          <div class="card-image">
-            <div class="gradient-bg gradient-alt">
-              <div class="grain-overlay"></div>
-              <div class="content">
-                <div class="gradient-text">No DATA = No IA</div>
-              </div>
-              <div class="card-logo">
-                <svg class="logo-icon" viewBox="0 0 24 24" width="32" height="32">
-                  <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"
-                        stroke="currentColor" fill="none" stroke-width="2" />
-                </svg>
-              </div>
-            </div>
-          </div>
-          <div class="card-content">
-            <span class="card-category">ÉTUDE</span>
-            <time class="card-date">04 Septembre 2024</time>
-            <h3>La donnée : clé de voûte de l’intelligence artificielle en entreprise.</h3>
-            <span class="card-author">Par Martial Roberge</span>
-          </div>
-        </a>
-      </div>
-    </div>
-  </section>
+  <!-- Section blog déplacée avant la section FAQ -->
 
   <style>
     .blog {
@@ -3316,11 +3257,11 @@
       background: transparent;
       color: #666;
       cursor: pointer;
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: all 0.2s ease;
     }
 
     .filter-btn:hover {
-      transform: translateY(-2px);
+      transform: translateY(-1px);
       color: #3b82f6;
     }
 
@@ -3342,14 +3283,14 @@
       border-radius: 24px;
       overflow: hidden;
       box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
-      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: all 0.2s ease;
       text-decoration: none;
       color: inherit;
     }
 
     .blog-card:hover {
-      transform: translateY(-12px);
-      box-shadow: 0 12px 48px rgba(59, 130, 246, 0.12);
+      transform: translateY(-5px);
+      box-shadow: 0 8px 24px rgba(59, 130, 246, 0.12);
     }
 
     .card-image {
@@ -3621,26 +3562,6 @@
 </html>
 
 <script src="/js/main.js"></script>
-  <!-- Notification de blog -->
-  <div class="blog-notification" id="blogNotification">
-    <div class="blog-notification-content">
-      <h3>Nouveau sur notre blog</h3>
-      <p>Lexia à l'ASIA STARTUP SUMMIT</p>
-      <a href="blog.html" class="blog-notification-cta">Voir notre dernier article</a>
-    </div>
-    <button class="blog-notification-close" id="closeNotification">&times;</button>
-  </div>
 
-  <script>
-    // Afficher la notification après 12 secondes
-    setTimeout(function() {
-      document.getElementById('blogNotification').classList.add('show');
-    }, 12000);
-    
-    // Fermer la notification
-    document.getElementById('closeNotification').addEventListener('click', function() {
-      document.getElementById('blogNotification').classList.remove('show');
-    });
-  </script>
 </body>
 </html>
