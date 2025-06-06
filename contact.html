@@ -615,13 +615,10 @@
           </svg>
         </a>
         <div class="dropdown-content">
-          <a href="feature1.html">Elixir - IA Documentaire</a>
-          <a href="feature2.html">Gilbert - IA Conversationnelle</a>
           <a href="transition-ia.html">Accompagnement à la Transition IA</a>
         </div>
       </div>
       <a href="index.html#case-studies" class="nav-link">Use Cases</a>
-      <a href="index.html#methodology" class="nav-link">Notre Méthode</a>
       <a href="team.html" class="nav-link">L'équipe Lexia</a>
       <a href="blog.html" class="nav-link">Blog</a>
       <a href="contact.html" class="nav-contact">
@@ -638,7 +635,6 @@
         <a href="feature2.html" class="mobile-nav-sublink">Gilbert - IA Conversationnelle</a>
         <a href="transition-ia.html" class="mobile-nav-sublink">Accompagnement à la Transition IA</a>
         <a href="index.html#case-studies" class="mobile-nav-link">Use Cases</a>
-        <a href="index.html#methodology" class="mobile-nav-link">Notre Méthode</a>
         <a href="team.html" class="mobile-nav-link">L'équipe Lexia</a>
         <a href="blog.html" class="mobile-nav-link">Blog</a>
         <a href="contact.html" class="mobile-nav-link">Nous Contacter</a>
@@ -670,13 +666,10 @@
           </svg>
         </a>
         <div class="dropdown-content">
-          <a href="feature1.html">Elixir - IA Documentaire</a>
-          <a href="feature2.html">Gilbert - IA Conversationnelle</a>
           <a href="transition-ia.html">Accompagnement à la Transition IA</a>
         </div>
       </div>
       <a href="index.html#case-studies" class="nav-link">Use Cases</a>
-      <a href="index.html#methodology" class="nav-link">Notre Méthode</a>
       <a href="team.html" class="nav-link">L'équipe Lexia</a>
       <a href="blog.html" class="nav-link">Blog</a>
       <a href="contact.html" class="nav-contact">
@@ -731,7 +724,7 @@
     </div>
   </div>
 
-  <form class="contact-form" id="contactForm">
+  <form class="contact-form" id="contactForm" action="https://formspree.io/f/mzzgddeq" method="POST">
     <div class="form-grid">
       <div class="form-field">
         <input type="text" name="name" id="name" placeholder=" " required>
@@ -893,8 +886,6 @@
     <div class="footer-nav">
       <div class="footer-nav-column">
           <h4>Solutions</h4>
-          <a href="feature1.html">Elixir - IA Documentaire</a>
-          <a href="feature2.html">Gilbert - IA Conversationnelle</a>
           <a href="transition-ia.html">Accompagnement à la Transition IA</a>
         </div>      <div class="footer-nav-column">
         <h4>Entreprise</h4>
@@ -944,41 +935,13 @@
 <script src="js/main.js"></script>
 <script>
 document.getElementById('contactForm').addEventListener('submit', function(e) {
-  e.preventDefault();
+  // Formspree gère maintenant la soumission du formulaire
+  // On ajoute juste le comportement pour afficher le message de remerciement
   
-  // Récupérer les données du formulaire
-  const formData = {
-    name: this.querySelector('#name').value,
-    email: this.querySelector('#email').value,
-    phone: this.querySelector('#phone').value,
-    company: this.querySelector('#company').value,
-    message: this.querySelector('#message').value
-  };
-  
-  // Envoyer les données via fetch
-  fetch('http://localhost:3000/send-email', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(formData)
-
-  .then(response => {
-    if (response.ok) {
-      return response.json();
-    }
-    throw new Error('Erreur lors de l\'envoi du formulaire');
-  })
-  .then(data => {
-    // Afficher le message de remerciement
+  setTimeout(function() {
+    // Afficher le message de remerciement après la soumission du formulaire
     document.getElementById('thankYouMessage').classList.add('show');
-    // Réinitialiser le formulaire
-    this.reset();
-  })
-  .catch(error => {
-    console.error('Error:', error);
-    alert('Une erreur est survenue. Veuillez réessayer.');
-  });
+  }, 1000);
 });
 
 function closeThankYouMessage() {

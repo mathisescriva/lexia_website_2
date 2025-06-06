@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Accueil - Lexia AI Solutions</title>
+  <title>Lexia AI Solutions - Solutions d'IA juridique pour l'analyse automatisée de contrats</title>
+  <meta name="description" content="Solution d'IA juridique permettant l'analyse automatisée de contrats et documents légaux, tout en préservant l'expertise humaine des juristes. Analyse de +200 types de documents.">
   <link rel="icon" href="img/logo3.png" type="image/png">
   <style>
     /* Style global pour éliminer le fond beige */
@@ -87,14 +88,11 @@
           </svg>
         </a>
         <div class="dropdown-content">
-          <a href="feature1.html">Elixir - IA Documentaire</a>
-          <a href="feature2.html">Gilbert - IA Conversationnelle</a>
-          <a href="transition-ia.html">Accompagnement à la Transition IA</a>
+          <a href="index.html#expertises">Développement IA</a>
+          <a href="transition-ia.html">Accompagnement IA</a>
         </div>
       </div>
-      <a href="index.html#expertises" class="nav-link">Nos Expertises</a>
       <a href="index.html#case-studies" class="nav-link">Use Cases</a>
-      <a href="index.html#methodology" class="nav-link">Notre Méthode</a>
       <a href="team.html" class="nav-link">L'équipe Lexia</a>
       <a href="blog.html" class="nav-link">Blog</a>
       <a href="contact.html" class="nav-contact">
@@ -112,12 +110,9 @@
     <div class="mobile-nav" id="mobileNav">
       <div class="mobile-nav-content">
         <a href="index.html#features" class="mobile-nav-link">Nos Solutions</a>
-        <a href="feature1.html" class="mobile-nav-sublink">Elixir - IA Documentaire</a>
-        <a href="feature2.html" class="mobile-nav-sublink">Gilbert - IA Conversationnelle</a>
-        <a href="transition-ia.html" class="mobile-nav-sublink">Accompagnement à la Transition IA</a>
-        <a href="index.html#expertises" class="mobile-nav-link">Nos Expertises</a>
+        <a href="index.html#expertises" class="mobile-nav-sublink">Développement IA</a>
+        <a href="transition-ia.html" class="mobile-nav-sublink">Accompagnement IA</a>
         <a href="index.html#case-studies" class="mobile-nav-link">Use Cases</a>
-        <a href="index.html#methodology" class="mobile-nav-link">Notre Méthode</a>
         <a href="team.html" class="mobile-nav-link">L'équipe Lexia</a>
         <a href="blog.html" class="mobile-nav-link">Blog</a>
         <a href="contact.html" class="mobile-nav-link">Nous Contacter</a>
@@ -148,6 +143,65 @@
     opacity: 0;
     transform: translateY(20px);
     animation: fadeInUp 1s cubic-bezier(0.5, 0, 0, 1) 0.6s forwards;
+    display: flex;
+    gap: 20px;
+    margin-top: 40px;
+    flex-wrap: wrap;
+  }
+  
+  .hero-btn {
+    display: inline-block;
+    padding: 14px 28px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1rem;
+    letter-spacing: 0.02em;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    text-align: center;
+    white-space: nowrap;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .hero-btn-primary {
+    background: linear-gradient(135deg, #f97316 0%, #3b82f6 100%);
+    color: white;
+    border: none;
+  }
+  
+  .hero-btn-primary:hover {
+    background: linear-gradient(135deg, #f59e0b 0%, #2563eb 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+  }
+  
+  .hero-btn-secondary {
+    background: transparent;
+    color: #1a202c;
+    border: 2px solid rgba(203, 213, 225, 0.8);
+  }
+  
+  .hero-btn-secondary:hover {
+    border-color: #3b82f6;
+    color: #3b82f6;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(203, 213, 225, 0.3);
+  }
+  
+  @media (max-width: 768px) {
+    .hero-cta {
+      flex-direction: column;
+      gap: 16px;
+      width: 100%;
+      max-width: 320px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .hero-btn {
+      width: 100%;
+      padding: 12px 24px;
+    }
   }
 
   /* Animations pour le visuel */
@@ -308,8 +362,8 @@
       </h1>
       <p>Des solutions d'intelligence artificielle conçues spécifiquement pour répondre aux besoins des PME et ETI françaises, avec un contrôle total sur vos données stratégiques.</p>
       <div class="hero-cta">
-        <button onclick="window.location.href='#use-cases'" class="btn btn-primary">Découvrir nos cas d'usage</button>
-        <button onclick="window.location.href='#features'" class="btn btn-secondary">Nos solutions</button>
+        <a href="#use-cases" class="hero-btn hero-btn-primary">Découvrir nos cas d'usage</a>
+        <a href="#features" class="hero-btn hero-btn-secondary">Nos solutions</a>
       </div>
     </div>
     <div class="hero-visual">
@@ -3016,7 +3070,7 @@
     color: #000000;
   }
 </style>
-<section id="parcours" class="expertises" style="position: relative; padding: 80px 0; overflow: hidden;">
+<section id="expertises" class="expertises" style="position: relative; padding: 80px 0; overflow: hidden;">
   <!-- Background avec image -->
   <div class="background-image" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url('img/fond_roadmap.png'); background-size: cover; background-position: center; z-index: 0; opacity: 0.6;"></div>
   
@@ -3117,6 +3171,234 @@
     </div>
   </div>
 </section>
+
+<!-- Section Gilbert -->
+<section id="gilbert-section" class="gilbert-section">
+  <!-- Background avec léger gradient -->
+  <div class="background-overlay"></div>
+  
+  <div class="container">
+    <h2 class="section-title">Gilbert</h2>
+    <h3 class="section-subtitle">Transformez vos conversations en leviers d'actions avec Gilbert</h3>
+    <div class="section-divider"><span></span></div>
+    
+    <div class="gilbert-content">
+      <!-- Partie gauche : Logo et description -->
+      <div class="gilbert-info">
+        <div class="gilbert-info-inner">
+          <img src="img/logo_gilbert_2.png" alt="Logo Gilbert" class="gilbert-logo">
+          <p class="gilbert-description">
+            Gilbert transforme vos conversations clients en insights concrets et actionnables. Exploitez pleinement le potentiel de vos échanges grâce à notre solution d'IA conversationnelle avancée.
+          </p>
+          <a href="https://gilbert-assistant.fr/" class="btn-primary" target="_blank">
+            Aller sur le site de Gilbert
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
+        </div>
+      </div>
+      
+      <!-- Partie droite : Image de l'interface -->
+      <div class="gilbert-interface">
+        <div class="interface-container">
+          <img src="img/interface_dashboard.png" alt="Interface de Gilbert" class="interface-image">
+          <!-- Overlay subtil pour améliorer la lisibilité du texte sur l'image -->
+          <div class="interface-overlay"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Styles pour la section Gilbert */
+  .gilbert-section {
+    background: linear-gradient(160deg, #f5f8ff 0%, #eef2f7 100%);
+    padding: 50px 0 100px;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .background-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(160deg, #f1f5f9 0%, #e2e8f0 100%);
+    z-index: 0;
+  }
+  
+  .container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+    padding: 0 20px;
+  }
+  
+  .section-title {
+    text-align: center;
+    font-size: 6rem;
+    font-weight: 900;
+    margin-top: -20px;
+    margin-bottom: 30px;
+    color: #1a202c;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+  }
+  
+  .section-subtitle {
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: #334155;
+  }
+  
+  .section-divider {
+    display: flex;
+    justify-content: center;
+    margin: 15px 0;
+  }
+  
+  .section-divider span {
+    width: 60px;
+    height: 4px;
+    background: #3b82f6;
+    border-radius: 2px;
+  }
+  
+  .gilbert-content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    margin-top: 50px;
+  }
+  
+  .gilbert-info {
+    flex: 1;
+    padding: 0 20px;
+    min-width: 300px;
+  }
+  
+  .gilbert-info-inner {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .gilbert-logo {
+    max-width: 180px;
+    margin-bottom: 20px;
+  }
+  
+  .gilbert-description {
+    font-size: 1.2rem;
+    color: #334155;
+    line-height: 1.6;
+    margin-top: 20px;
+  }
+  
+  .gilbert-interface {
+    flex: 1.2;
+    min-width: 300px;
+    transition: transform 0.3s ease;
+  }
+  
+  .gilbert-interface:hover {
+    transform: translateY(-5px);
+  }
+  
+  .interface-container {
+    position: relative;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  
+  .interface-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 12px;
+  }
+  
+  .interface-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+  }
+  
+  .btn-primary {
+    display: inline-block;
+    background-color: #3b82f6;
+    color: white;
+    font-weight: 600;
+    padding: 12px 24px;
+    border-radius: 8px;
+    text-decoration: none;
+    margin-top: 20px;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 6px rgba(59, 130, 246, 0.2);
+  }
+  
+  .btn-primary:hover {
+    background-color: #2563eb;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 10px rgba(59, 130, 246, 0.25);
+  }
+  
+  .btn-primary svg {
+    vertical-align: middle;
+    margin-left: 8px;
+    transition: transform 0.2s ease;
+  }
+  
+  .btn-primary:hover svg {
+    transform: translateX(3px);
+  }
+  
+  @media (max-width: 992px) {
+    .gilbert-content {
+      flex-direction: column;
+    }
+    
+    .gilbert-info,
+    .gilbert-interface {
+      width: 100%;
+      max-width: 550px;
+      margin: 0 auto;
+    }
+    
+    .gilbert-info {
+      order: 1;
+      margin-top: 30px;
+    }
+    
+    .gilbert-interface {
+      order: 0;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .gilbert-section {
+      padding: 60px 0;
+    }
+    
+    .gilbert-section h2 {
+      font-size: 2rem;
+    }
+  }
+</style>
 
 <style>
   .expertises {
@@ -3922,9 +4204,8 @@
       <div class="footer-nav">
         <div class="footer-nav-column">
           <h4>Solutions</h4>
-          <a href="feature1.html">Elixir - IA Documentaire</a>
-          <a href="feature2.html">Gilbert - IA Conversationnelle</a>
-          <a href="transition-ia.html">Accompagnement à la Transition IA</a>
+          <a href="index.html#expertises">Développement IA</a>
+          <a href="transition-ia.html">Accompagnement IA</a>
         </div>
         <div class="footer-nav-column">
           <h4>Entreprise</h4>
